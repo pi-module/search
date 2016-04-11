@@ -55,6 +55,89 @@ class IndexController extends ActionController
     }
 
     /**
+     * Search by ajax method
+     */
+    public function ajaxAction()
+    {
+        $query      = $this->params('q');
+        $modules    = $this->getModules($query);
+        $list       = array();
+
+        if ($query) {
+            $total  = 0;
+            $terms  = array();
+            if (!$this->checkFlood()) {
+                $list[] = array(
+                    'class' => '',
+                    'title' => __('Submission flood detected, please wait for a while.'),
+                    'url' => '#',
+                    'icon' => '',
+                    'image' => '',
+                );
+            } else {
+                $terms  = $this->parseQuery($query);
+                if ($terms) {
+                    $limit  = $this->config('leading_limit');
+                    $result = $this->query($terms, $limit);
+                    foreach ($result as $name => $data) {
+                        $total += $data->getTotal();
+                        $totalDate = $data->getTotal();
+                        if ($totalDate > 0) {
+                            $list[] = array(
+                                'class' => ' class="dropdown-header"',
+                                'title' => sprintf(__('Search result of %s on %s'), $query, $modules[$name]['title']),
+                                'url' => $modules[$name]['url'],
+                                'icon' => $modules[$name]['icon'],
+                                'image' => '',
+                            );
+                            foreach ($data as $item) {
+                                $image = '';
+                                if (isset($item['image']) && !empty($item['image'])) {
+                                    $image = $item['image'];
+                                }
+                                $list[] = array(
+                                    'class' => '',
+                                    'title' => $item['title'],
+                                    'url' => $item['url'],
+                                    'icon' => '',
+                                    'image' => $image,
+                                );
+                            }
+                        }
+                    }
+                    if (empty($list) && $total == 0) {
+                        $list[] = array(
+                            'class' => '',
+                            'title' => __('No result found.'),
+                            'url' => '#',
+                            'icon' => '',
+                            'image' => '',
+                        );
+                    }
+                } else {
+                    $list[] = array(
+                        'class' => '',
+                        'title' => __('Please input term for search'),
+                        'url' => '#',
+                        'icon' => '',
+                        'image' => '',
+                    );
+                }
+            }
+        } else {
+            $list[] = array(
+                'class' => '',
+                'title' => __('Please input term for search'),
+                'url' => '#',
+                'icon' => '',
+                'image' => '',
+            );
+        }
+
+        return $list;
+    }
+
+    /**
      * Perform global search
      *
      * @return void
@@ -73,6 +156,7 @@ class IndexController extends ActionController
             } else {
                 $terms  = $this->parseQuery($query);
             }
+
             if ($terms) {
                 $limit  = $this->config('leading_limit');
                 $result = $this->query($terms, $limit);
@@ -231,25 +315,29 @@ class IndexController extends ActionController
     {
         $result = array();
 
-        // Text quoted by `"` or `'` should be matched exactly
-        $pattern = '`(?:(?:"(?:\\"|[^"])+")|(?:\'(?:\\\'|[^\'])+\'))`is';
-        $length = $this->config('min_length');
+        if ($this->config('separate_query')) {
+            // Text quoted by `"` or `'` should be matched exactly
+            $pattern = '`(?:(?:"(?:\\"|[^"])+")|(?:\'(?:\\\'|[^\'])+\'))`is';
+            $length = $this->config('min_length');
 
-        $terms = array();
-        $callback = function ($match) use (&$terms) {
-            $terms[] = substr($match[0], 1, -1);
-            return ' ';
-        };
-        $string = preg_replace_callback($pattern, $callback, $query);
-        $terms = array_merge($terms, explode(' ', $string));
+            $terms = array();
+            $callback = function ($match) use (&$terms) {
+                $terms[] = substr($match[0], 1, -1);
+                return ' ';
+            };
+            $string = preg_replace_callback($pattern, $callback, $query);
+            $terms = array_merge($terms, explode(' ', $string));
 
-        array_walk($terms, function ($term) use (&$result, $length) {
-            $term = trim($term);
-            if (!$length || strlen($term) >= $length) {
-                $result[] = $term;
-            }
-        });
-        $result = array_filter(array_unique($result));
+            array_walk($terms, function ($term) use (&$result, $length) {
+                $term = trim($term);
+                if (!$length || strlen($term) >= $length) {
+                    $result[] = $term;
+                }
+            });
+            $result = array_filter(array_unique($result));
+        } else {
+            $result[] = $query;
+        }
 
         return $result;
     }
@@ -331,7 +419,7 @@ class IndexController extends ActionController
                 continue;
             }
             $node = $moduleList[$name];
-            $url = $this->url(
+            $url = Pi::url($this->url(
                 '',
                 array(
                     'action'    => 'module',
@@ -342,7 +430,7 @@ class IndexController extends ActionController
                         'q' => $query,
                     ),
                 )
-            );
+            ));
             $modules[$name] = array(
                 'id'        => $node['id'],
                 'title'     => $node['title'],

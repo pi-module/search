@@ -1,85 +1,108 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2014-09-12 11:17+0330\n"
-"PO-Revision-Date: 2014-09-12 11:17+0330\n"
+"POT-Creation-Date: 2016-04-11 19:31+0430\n"
+"PO-Revision-Date: 2016-04-11 19:31+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.5.0/usr/module/"
-"search\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/src/Form/Element/Module.php:25
-msgid "All modules"
+#: src/Controller/Front/IndexController.php:72
+#: template/front/search-result.phtml:14
+msgid "Submission flood detected, please wait for a while."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/src/Controller/Front/IndexController.php:406
+#: src/Controller/Front/IndexController.php:88
+#: template/front/search-module-result.phtml:8
+#: template/front/search-result.phtml:27
+#, php-format
+msgid "Search result of %s on %s"
+msgstr ""
+
+#: src/Controller/Front/IndexController.php:111
+#: template/front/search-module-result.phtml:48
+#: template/front/search-result.phtml:16
+msgid "No result found."
+msgstr ""
+
+#: src/Controller/Front/IndexController.php:120
+#: src/Controller/Front/IndexController.php:130
+msgid "Please input term for search"
+msgstr ""
+
+#: src/Controller/Front/IndexController.php:494
 msgid "Google"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/src/Controller/Front/IndexController.php:414
+#: src/Controller/Front/IndexController.php:502
 msgid "Baidu"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-form.phtml:5
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:42
-msgid "Go to home page"
+#: src/Form/Element/Module.php:25
+msgid "All modules"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-form.phtml:17
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-home.phtml:22
+#: template/front/search-form.phtml:15 template/front/search-home.phtml:22
 msgid "Global"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-form.phtml:33
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-home.phtml:38
+#: template/front/search-form.phtml:31 template/front/search-home.phtml:40
 msgid "Keywords"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-form.phtml:36
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-home.phtml:41
+#: template/front/search-form.phtml:34 template/front/search-home.phtml:8
+#: template/front/search-home.phtml:43
 msgid "Search"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:8
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:88
+#: template/front/search-google.phtml:9 template/front/search-google.phtml:89
 #, php-format
 msgid "Google search for %s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:28
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:78
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:90
+#: template/front/search-google.phtml:29 template/front/search-google.phtml:79
+#: template/front/search-google.phtml:91
 msgid "Loading ..."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:53
+#: template/front/search-google.phtml:43
+msgid "Go to home page"
+msgstr ""
+
+#: template/front/search-google.phtml:54
 msgid "Google search"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-module-result.phtml:30
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:8
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:42
+#: template/front/search-module-result.phtml:10
+#: template/front/search-result.phtml:29
+msgid "Search result"
+msgstr ""
+
+#: template/front/search-module-result.phtml:43
+#: template/front/search-result.phtml:32
 #, php-format
 msgid "%d found."
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-module-result.phtml:35
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:12
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:52
-msgid "No result found."
+#: template/front/search-result.phtml:7
+#, php-format
+msgid "Search result of %s"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:10
-msgid "Submission flood detected, please wait for a while."
+#: template/front/search-result.phtml:12
+#, php-format
+msgid ""
+"On all modules we found about <strong>%d</strong> result on search of "
+"<strong>%s</strong>"
 msgstr ""
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:46
+#: template/front/search-result.phtml:63
 msgid "All result &raquo;"
 msgstr ""

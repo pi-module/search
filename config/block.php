@@ -14,6 +14,19 @@ return array(
         'render'        => array('block', 'search'),
         'template'      => 'search',
         'config'        => array(
+            'type' => array(
+                'title'         => _a('Search type'),
+                'edit'          => array(
+                    'type'          => 'select',
+                    'options'    => array(
+                        'options'   => array(
+                            'normal'    => _a('Normal'),
+                            'ajax'   => _a('Ajax'),
+                        ),
+                    ),
+                ),
+                'value'         => 'normal',
+            ),
             'target' => array(
                 'title'         => _a('Target'),
                 'edit'          => array(
@@ -25,7 +38,7 @@ return array(
                         ),
                     ),
                 ),
-                'value'         => '_self', 
+                'value'         => '_self',
             ),
             'module' => array(
                 'title'         => _a('Module'),

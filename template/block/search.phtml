@@ -1,36 +1,88 @@
-<form method="get" action="<?php echo $block['action']; ?>"
-    <?php if (!empty($block['options']['target'])) { echo ' target="' . $block['options']['target'] . '"'; } ?>>
-    <div class="input-group">
-        <input type="text" class="form-control" name="q" placeholder="<?php echo _b('Search'); ?>">
-        <div class="input-group-btn">
-            <?php if (!empty($block['list'])) { ?>
-            <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-search"></i>
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu pull-right" id="js-search-menu">
-                <?php foreach ($block['list'] as $name => $label) { ?>
-                <li>
-                    <a href="#" data-value="<?php echo _escape($name); ?>">
-                        <?php echo _escape($label); ?>
-                    </a>
-                </li>    
-                <?php } ?>
-            </ul>
-            <input type="hidden" name="m">
-            <?php } else { ?>
-            <?php if ($block['options']['module'] != 'all') { ?>
-            <input type="hidden" name="m" value="<?php echo $block['options']['module']; ?>">
-            <?php } ?>
-            <button class="btn btn-default">
-                <i class="fa fa-search"></i>
-            </button>
-            <?php } ?>
+<div class="search-block">
+    <?php if ($block['options']['type'] == 'ajax') { ?>
+        <?php
+        $script = <<<'EOT'
+(function($){
+    $("#search-keyword").keyup(function () {
+        var keyword = $("#search-keyword").val();
+        if (keyword.length >= %s) {
+            $.get("%s", {q: keyword})
+                .done(function (data) {
+                    $('.search-results').html('');
+                    var results = jQuery.parseJSON(data);
+                    $(results).each(function (key, value) {
+                        if (value.image != '') {
+                            $('.search-results').append('<li' + value.class + '><a title="' + value.title + '" href="' + value.url + '"><img src="' + value.image + '" alt="' + value.title + '"> ' + value.title + '</a></li>');
+                        } else if (value.icon != '') {
+                            $('.search-results').append('<li' + value.class + '><a title="' + value.title + '" href="' + value.url + '"><i class="fa ' + value.icon + '"></i> ' + value.title + '</a></li>');
+                        } else {
+                            $('.search-results').append('<li' + value.class + '><a title="' + value.title + '" href="' + value.url + '">' + value.title + '</a></li>');
+                        }
+                    })
+                });
+        } else {
+            $('.search-results').html('');
+        }
+    });
+    $("#search-keyword").blur(function () {
+        $(".search-results").fadeOut(500);
+    }).focus(function () {
+        $(".search-results").show();
+    });
+})(jQuery)
+EOT;
+        $script = sprintf(
+            $script,
+            $block['length'],
+            $block['ajax']
+        );
+        $this->jQuery();
+        $this->footScript()->appendScript($script);
+        $this->css($this->assetModule('front/block.css', 'search'));
+    ?>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" value="" placeholder="<?php echo _b('Search'); ?>" id="search-keyword" class="form-control">
+                <div class="input-group-addon">
+                    <i class="fa fa-search"></i>
+                </div>
+            </div>
         </div>
-    </div>
-</form>
-<?php if (!empty($block['list'])) { 
-    $script = <<<'EOT'
+        <ul class="search-results dropdown-menu"></ul>
+    <?php } else { ?>
+        <form method="get" action="<?php echo $block['action']; ?>"
+            <?php if (!empty($block['options']['target'])) { echo ' target="' . $block['options']['target'] . '"'; } ?>>
+            <div class="input-group">
+                <input type="text" class="form-control" name="q" placeholder="<?php echo _b('Search'); ?>">
+                <div class="input-group-btn">
+                    <?php if (!empty($block['list'])) { ?>
+                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-search"></i>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu pull-right" id="js-search-menu">
+                            <?php foreach ($block['list'] as $name => $label) { ?>
+                                <li>
+                                    <a href="#" data-value="<?php echo _escape($name); ?>">
+                                        <?php echo _escape($label); ?>
+                                    </a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                        <input type="hidden" name="m">
+                    <?php } else { ?>
+                        <?php if ($block['options']['module'] != 'all') { ?>
+                            <input type="hidden" name="m" value="<?php echo $block['options']['module']; ?>">
+                        <?php } ?>
+                        <button class="btn btn-default">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    <?php } ?>
+                </div>
+            </div>
+        </form>
+        <?php if (!empty($block['list'])) {
+            $script = <<<'EOT'
     $('#js-search-menu').on('click', 'a', function(e) {
     var $this = $(this);
     var val = $this.data('value');
@@ -42,5 +94,7 @@
     form[0].submit();
 });
 EOT;
-    $this->footScript()->appendScript($script);
-} ?>
+            $this->footScript()->appendScript($script);
+        } ?>
+    <?php } ?>
+</div>

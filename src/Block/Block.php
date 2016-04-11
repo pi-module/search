@@ -14,11 +14,18 @@ class Block
 {
     public static function search($options)
     {
-        $formAction = Pi::service('url')->assemble('search');
+        $config = Pi::service('registry')->config->read('search');
+        
+        $formAction = Pi::url(Pi::service('url')->assemble('search'));
+        $ajaxAction = Pi::url(Pi::service('url')->assemble('search', array(
+            'module' => 'search',
+            'controller' => 'index',
+            'action' => 'ajax',
+        )));
 
         $list = array();
 
-        if ($options['module'] == 'all') {
+        if ($options['module'] == 'all' && $options['type'] == 'normal') {
             $module = Pi::service('module')->current();
             $modules = Pi::registry('search')->read();
             if ($module && isset($modules[$module])) {
@@ -32,7 +39,9 @@ class Block
         return array(
             'options'   => $options,
             'action'    => $formAction,
-            'list'      => $list
+            'ajax'      => $ajaxAction,
+            'list'      => $list,
+            'length'    => $config['min_length']
         );
     }
 }

@@ -1,0 +1,46 @@
+.search-results {
+    display: none;
+}
+
+.search-block .dropdown-menu {
+    width: 500px;
+    margin: -8px 30px 0 0;
+}
+
+.search-block .dropdown-menu li {
+    border-bottom: 1px solid #ddd ;
+}
+
+.search-block .dropdown-menu li i {
+    margin: 0 5px;
+    font-size: 18px;
+}
+
+.search-block .dropdown-menu li img {
+    margin: 0 5px;
+    height: 40px;
+}
+
+.search-block .dropdown-menu .dropdown-header {
+    background-color: #cccccc;
+    padding: 3px 0;
+}
+
+.search-block .dropdown-menu .dropdown-header a:hover {
+    background-color: #cccccc;
+}
+
+/* RTL setting */
+/*
+.search-block .dropdown-menu li {
+    text-align: right;
+}
+
+.search-block .input-group-addon:last-child {
+    border-left: 1px solid #ccc;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+*/

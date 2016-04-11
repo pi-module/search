@@ -1,35 +1,32 @@
-<?php $this->headMeta('noindex', 'robots'); ?>
+<?php $this->footScript()->appendFile($this->assetModule('front/search-tabs.js')); ?>
 <div class="row">
-    <div class="col-md-2">
-         <!-- You can define logo in theme -->
-        <a class="search-logo" href="<?php echo $this->url('home'); ?>"
-           title="<?php _e('Go to home page'); ?>">
-            <?php echo _escape(Pi::config('sitename')); ?>
-        </a>
-    </div>
-    <div class="col-md-6">
+    <div class="col-md-8 col-md-offset-2 col-xs-12">
         <form method="get" id="js-search-form"
               data-url="<?php echo $this->url('search'); ?>"
               data-module-url="<?php echo $this->url('search', array('m' => '_NAME')); ?>"
               data-service-url="<?php echo $this->url('search', array('service' => '_NAME')); ?>"
               data-module="<?php echo $searchModule; ?>">
             <div class="search-tabs">
-                <a href="#" class="js-search-global<?php if (!$searchModule) { echo ' active'; } ?>">
-                    <?php _e('Global'); ?>
-                </a>
-                <?php 
-                foreach ($modules as $name => $data) {
-                    echo sprintf(
-                        ' <a data-name="%s" href="#" class="js-search-module%s">%s</a> ',
-                        $name,
-                        $name == $searchModule ? ' active' : '',
-                        _escape($data['title'])
-                    );
-                }
-                ?>
+                <ul class="list-inline">
+                    <li>
+                        <a href="#" class="js-search-global<?php if (!$searchModule) {
+                            echo ' active';
+                        } ?>">
+                            <?php _e('Global'); ?>
+                        </a>
+                    </li>
+                    <?php foreach ($modules as $name => $data) {
+                        echo sprintf(
+                            '<li><a data-name="%s" href="#" class="js-search-module%s">%s</a></li>',
+                            $name,
+                            $name == $searchModule ? ' active' : '',
+                            _escape($data['title'])
+                        );
+                    } ?>
+                </ul>
             </div>
             <div class="input-group">
-                <input type="text" name="q" class="form-control" 
+                <input type="text" name="q" class="form-control"
                        value="<?php echo _escape($query); ?>"
                        placeholder="<?php _e('Keywords'); ?>">
                 <div class="input-group-btn">
@@ -39,18 +36,16 @@
                 </div>
             </div>
             <div class="search-service">
-                <?php
-                foreach ($service as $name => $data) {
-                    echo sprintf(
-                        ' <a data-name="%s" href="#" class="js-search-service">%s</a> ',
-                        $name,
-                        _escape($data['title'])
-                    );  
-                }
-                ?>
+                <ul class="list-inline">
+                    <?php foreach ($service as $name => $data) {
+                        echo sprintf(
+                            '<li><a data-name="%s" href="#" class="js-search-service">%s</a></li>',
+                            $name,
+                            _escape($data['title'])
+                        );
+                    } ?>
+                </ul>
             </div>
         </form>
     </div>
 </div>
-<hr>
-<?php $this->footScript()->appendFile($this->assetModule('front/search-tabs.js')); ?>

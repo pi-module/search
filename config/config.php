@@ -22,6 +22,14 @@ $config = array(
         'filter'        => 'int',
     ),
 
+    'separate_query' => array(
+        'title'         => _t('Separate query'),
+        'description'   => _t('Separate input keyword by space'),
+        'edit'          => 'checkbox',
+        'value'         => 0,
+        'filter'        => 'int',
+    ),
+
     'min_length' => array(
         'title'         => _t('Minimum query'),
         'description'   => _t('Minimum length for query term.'),

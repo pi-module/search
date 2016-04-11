@@ -1,100 +1,116 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2015-02-20 12:10+0330\n"
-"PO-Revision-Date: 2015-02-20 12:10+0330\n"
+"POT-Creation-Date: 2016-04-11 19:30+0430\n"
+"PO-Revision-Date: 2016-04-11 19:31+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.5.0/usr/module/"
-"search\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/src/Controller/Front/IndexController.php:406
+#: src/Controller/Front/IndexController.php:72
+#: template/front/search-result.phtml:14
+msgid "Submission flood detected, please wait for a while."
+msgstr "مطالبی زیادی یافت شده است، لطفا اندکی صبر کنید."
+
+#: src/Controller/Front/IndexController.php:88
+#: template/front/search-module-result.phtml:8
+#: template/front/search-result.phtml:27
+#, php-format
+msgid "Search result of %s on %s"
+msgstr "نتایج جستجو عبارت %s در بخش %s"
+
+#: src/Controller/Front/IndexController.php:111
+#: template/front/search-module-result.phtml:48
+#: template/front/search-result.phtml:16
+msgid "No result found."
+msgstr "هیچ نتیجه ای یافت نشد"
+
+#: src/Controller/Front/IndexController.php:120
+#: src/Controller/Front/IndexController.php:130
+msgid "Please input term for search"
+msgstr "لطفا یک عبارت برای جستجو وارد کنید"
+
+#: src/Controller/Front/IndexController.php:494
 msgid "Google"
 msgstr "گوگل"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/src/Controller/Front/IndexController.php:414
+#: src/Controller/Front/IndexController.php:502
 msgid "Baidu"
 msgstr "بایدو"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/src/Form/Element/Module.php:25
+#: src/Form/Element/Module.php:25
 msgid "All modules"
 msgstr "همه ماژول ها"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-form.phtml:5
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:42
-msgid "Go to home page"
-msgstr "برو به صفحه اول"
-
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-form.phtml:17
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-home.phtml:17
+#: template/front/search-form.phtml:15 template/front/search-home.phtml:22
 msgid "Global"
 msgstr "سراسری"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-form.phtml:33
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-home.phtml:33
+#: template/front/search-form.phtml:31 template/front/search-home.phtml:40
 msgid "Keywords"
 msgstr "کلمات کلیدی"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-form.phtml:36
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-home.phtml:5
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-home.phtml:36
+#: template/front/search-form.phtml:34 template/front/search-home.phtml:8
+#: template/front/search-home.phtml:43
 msgid "Search"
 msgstr "جستجو"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:8
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:88
+#: template/front/search-google.phtml:9 template/front/search-google.phtml:89
 #, php-format
 msgid "Google search for %s"
 msgstr "جستجوی سراسری برای %s"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:28
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:78
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:90
+#: template/front/search-google.phtml:29 template/front/search-google.phtml:79
+#: template/front/search-google.phtml:91
 msgid "Loading ..."
 msgstr "در حال بارگذاری ..."
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-google.phtml:53
+#: template/front/search-google.phtml:43
+msgid "Go to home page"
+msgstr "برو به صفحه اول"
+
+#: template/front/search-google.phtml:54
 msgid "Google search"
 msgstr "جستجوی گوگل"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-module-result.phtml:7
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:22
-#, php-format
-msgid "Search result of %s"
-msgstr "نتایج جستجوی %s"
-
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-module-result.phtml:9
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:24
+#: template/front/search-module-result.phtml:10
+#: template/front/search-result.phtml:29
 msgid "Search result"
 msgstr "نتایج جستجو"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-module-result.phtml:35
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:8
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:47
+#: template/front/search-module-result.phtml:43
+#: template/front/search-result.phtml:32
 #, php-format
 msgid "%d found."
 msgstr "%d نتیجه"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-module-result.phtml:40
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:12
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:57
-msgid "No result found."
-msgstr "هیچ نتیجه ای یافت نشد"
+#: template/front/search-result.phtml:7
+#, php-format
+msgid "Search result of %s"
+msgstr "نتایج جستجوی %s"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:10
-msgid "Submission flood detected, please wait for a while."
-msgstr "مطالبی زیادی یافت شده است، لطفا اندکی صبر کنید."
+#: template/front/search-result.phtml:12
+#, php-format
+msgid ""
+"On all modules we found about <strong>%d</strong> result on search of "
+"<strong>%s</strong>"
+msgstr ""
+"در تمام بخش های سایت تعداد <strong>%d</strong> نتیجه از جستحوی عبارت "
+"<strong>%s</strong> یافت شد"
 
-#: /var/www/html/local/pi/pi-release-2.5.0/usr/module/search/template/front/search-result.phtml:51
+#: template/front/search-result.phtml:63
 msgid "All result &raquo;"
 msgstr "همه نتایج &raquo;"
+
+#~ msgid "Items related of %s on %s"
+#~ msgstr "نتایج جستجو عبارت %s در بخش %s"
 
 #~ msgid "Bing"
 #~ msgstr "بینگ"

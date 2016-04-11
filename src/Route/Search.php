@@ -63,6 +63,10 @@ class Search extends Standard
                 if ($parts) {
                     $matches['service'] = $parts[0];
                 }
+            } elseif ('ajax' == $term) {
+                $matches['controller']  = 'index';
+                $matches['action']      = 'ajax';
+
             } else {
                 $matches['action'] = 'module';
                 $matches['m'] = $term;
@@ -121,6 +125,7 @@ class Search extends Standard
                 $mca[$key] = $this->encode($params[$key]);
             }
         }
+
         $query  = array();
         if ($this->defaults['controller'] == $params['controller']) {
             if (!empty($params['m'])) {
@@ -140,7 +145,7 @@ class Search extends Standard
 
         if ($this->paramDelimiter === $this->structureDelimiter) {
             foreach(array('action', 'controller') as $key) {
-                if (!empty($url) || $mca[$key] !== $this->defaults[$key]) {
+                if ((!empty($url) || $mca[$key] !== $this->defaults[$key]) && $mca[$key] !== 'index') {
                     $url = $this->encode($mca[$key]) . $this->paramDelimiter
                         . $url;
                 }
