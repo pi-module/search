@@ -1,13 +1,13 @@
 <div class="search-block">
     <?php if ($block['options']['type'] == 'ajax') { ?>
-        <?php
-        $script = <<<'EOT'
+        <?php if ($block['block-effect']) {
+            $script = <<<'EOT'
 (function($){
+    var MIN_LENGTH = %s;
     $("#search-keyword").keyup(function () {
         var keyword = $("#search-keyword").val();
-        if (keyword.length >= %s) {
-            $.get("%s", {q: keyword})
-                .done(function (data) {
+        if (keyword.length >= MIN_LENGTH) {
+            $.get("%s", {q: keyword}).done(function (data) {
                     $('.search-results').html('');
                     var results = jQuery.parseJSON(data);
                     $(results).each(function (key, value) {
@@ -31,17 +31,15 @@
     });
 })(jQuery)
 EOT;
-        $script = sprintf(
-            $script,
-            $block['length'],
-            $block['ajax']
-        );
-        $this->jQuery();
-        $this->footScript()->appendScript($script);
-        if ($block['block-effect']) {
+            $script = sprintf(
+                $script,
+                $block['length'],
+                $block['ajax']
+            );
+            $this->jQuery();
+            $this->footScript()->appendScript($script);
             $this->css($this->assetModule('front/block.css', 'search'));
-        }
-        ?>
+        } ?>
         <div class="form-group">
             <div class="input-group">
                 <input type="text" value="" placeholder="<?php echo _b('Search'); ?>" id="search-keyword" class="form-control">
