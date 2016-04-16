@@ -38,8 +38,10 @@ EOT;
         );
         $this->jQuery();
         $this->footScript()->appendScript($script);
-        $this->css($this->assetModule('front/block.css', 'search'));
-    ?>
+        if ($block['block-effect']) {
+            $this->css($this->assetModule('front/block.css', 'search'));
+        }
+        ?>
         <div class="form-group">
             <div class="input-group">
                 <input type="text" value="" placeholder="<?php echo _b('Search'); ?>" id="search-keyword" class="form-control">

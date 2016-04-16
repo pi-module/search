@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2016-04-16 10:28+0430\n"
-"PO-Revision-Date: 2016-04-16 10:29+0430\n"
+"POT-Creation-Date: 2016-04-16 10:57+0430\n"
+"PO-Revision-Date: 2016-04-16 10:58+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa\n"
@@ -53,6 +53,15 @@ msgstr "ماژول"
 #: config/block.php:45
 msgid "Module for search"
 msgstr "ماژول منبع برای جستجو"
+
+#: config/block.php:52
+msgid "Use block effects"
+msgstr "استفاده از افکت های بلاک "
+
+#: config/block.php:53
+msgid "Use block effects or set custom effect on theme"
+msgstr ""
+"استفاده از افکت های جاوا اسکریپت یا سی اس اس بلاک یا شخصی سازی آن در قالب"
 
 #: config/config.php:12
 msgid "Leading search result limit"

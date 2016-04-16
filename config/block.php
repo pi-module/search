@@ -47,7 +47,14 @@ return array(
                     'type'      => 'Module\Search\Form\Element\Module',
                 ),
                 'value'         => 'all', 
-            )
+            ),
+            'block-effect' => array(
+                'title' => _a('Use block effects'),
+                'description' => _a('Use block effects or set custom effect on theme'),
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 1,
+            ),
         )
     ),
 );
