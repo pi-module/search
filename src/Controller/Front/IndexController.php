@@ -336,7 +336,7 @@ class IndexController extends ActionController
             });
             $result = array_filter(array_unique($result));
         } else {
-            $result[] = $query;
+            $result[] = _strip($query);
         }
 
         return $result;
