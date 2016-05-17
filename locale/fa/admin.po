@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2016-04-16 10:57+0430\n"
-"PO-Revision-Date: 2016-04-16 10:58+0430\n"
+"POT-Creation-Date: 2016-05-17 16:10+0430\n"
+"PO-Revision-Date: 2016-05-17 16:12+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa\n"
@@ -55,110 +55,126 @@ msgid "Module for search"
 msgstr "ماژول منبع برای جستجو"
 
 #: config/block.php:52
+msgid "Search on current module"
+msgstr "جستجو در ماژول فعلی"
+
+#: config/block.php:53
+msgid "Show or hide option for search on current module"
+msgstr "نمایش یا مخفی کردن گزینه جستجو در ماژٰول فعلی"
+
+#: config/block.php:59
 msgid "Use block effects"
 msgstr "استفاده از افکت های بلاک "
 
-#: config/block.php:53
+#: config/block.php:60
 msgid "Use block effects or set custom effect on theme"
 msgstr ""
 "استفاده از افکت های جاوا اسکریپت یا سی اس اس بلاک یا شخصی سازی آن در قالب"
 
 #: config/config.php:12
+msgid "Save search log"
+msgstr "ذخیره گزارش جستجو"
+
+#: config/config.php:13
+msgid "It make your website little slow"
+msgstr "فعال کردن این گزینه ممکن است مقداری سایت شما را کُند نماید"
+
+#: config/config.php:20
 msgid "Leading search result limit"
 msgstr "پیشتاز نتایج جستجو"
 
-#: config/config.php:13
+#: config/config.php:21
 msgid "Number of found items on leading page."
 msgstr "تعداد موارد یافت شده در صفحه اصلی از هر ماژول"
 
-#: config/config.php:19
+#: config/config.php:27
 msgid "List search result limit"
 msgstr "محدودیت صفحه نمایش نتایج جستجو"
 
-#: config/config.php:20
+#: config/config.php:28
 msgid "Number of found items on list page."
 msgstr "تعداد موارد یافت شده در هر صفحه"
 
-#: config/config.php:26
+#: config/config.php:34
 msgid "Separate query"
 msgstr "تکه تکه کردن کوئری"
 
-#: config/config.php:27
+#: config/config.php:35
 msgid "Separate input keyword by space"
 msgstr "بر اساس اسپیس عبارت ورودی را به کلمات کوچک‌تر تجزیه کن"
 
-#: config/config.php:34
+#: config/config.php:42
 msgid "Minimum query"
 msgstr "کمترین کوئری"
 
-#: config/config.php:35
+#: config/config.php:43
 msgid "Minimum length for query term."
 msgstr "کمترین طول برای کلمه مورد جستجو"
 
-#: config/config.php:41
+#: config/config.php:49
 msgid "Search interval limit"
 msgstr "محدودیت فاصله دو جستجو"
 
-#: config/config.php:42
+#: config/config.php:50
 msgid "Limit for search time interval."
 msgstr "محدودیت زمان برای فاصله بین دو جستجو"
 
-#: config/config.php:48
+#: config/config.php:56
 msgid "Anonymous interval limit"
 msgstr "محدودیت جستجو کاربر مهمان"
 
-#: config/config.php:49
+#: config/config.php:57
 msgid "Limit for anonymous search time interval."
 msgstr "محدودیت زمان برای فاصله بین دو جستجو توسط کاربر مهمان"
 
-#: config/config.php:55
+#: config/config.php:63
 msgid "Log search terms"
 msgstr "گزارش از کلمات جستجو شده"
 
-#: config/config.php:62
+#: config/config.php:70
 msgid "Search result cache"
 msgstr "کَش نتایج جستجو"
 
-#: config/config.php:68
+#: config/config.php:76
 msgid "Hot search"
 msgstr "جستجوی داغ"
 
-#: config/config.php:69
+#: config/config.php:77
 msgid "Hot words for global auto-complete, separated by comma `,`."
 msgstr ""
 "کلمات داغ برای جستجوی سراسری به صورت اتو-کمپلیت ، با استفاده از کاما `,` جدا "
 "کنید."
 
-#: config/config.php:75
+#: config/config.php:83
 msgid "Google local host"
 msgstr "آدرس محلی گوگل"
 
-#: config/config.php:76
+#: config/config.php:84
 msgid "Specify a google local host if it is not https://www.google.com"
 msgstr "آدرس محلی گوگل را اگر https://www.google.com نیست مشخص کنید."
 
-#: config/config.php:81
+#: config/config.php:89
 msgid "Google custom search code"
 msgstr "کد جستجو شخصی گوگل"
 
-#: config/config.php:82
+#: config/config.php:90
 msgid "Google CSE provided at https://www.google.com/cse/"
 msgstr "گوگل CSE ارائه شده در https://www.google.com/cse/"
 
-#: config/config.php:87
+#: config/config.php:95
 msgid "Baidu custom search code"
 msgstr "ایجاد کد جستجوی شخصی"
 
-#: config/config.php:88
+#: config/config.php:96
 msgid "Custom search provided by Baidu at http://zhanzhang.baidu.com/search/"
 msgstr ""
 "کد جستجوی شخصی ارائه شده توسط بایدو در http://zhanzhang.baidu.com/search/"
 
-#: config/config.php:92
+#: config/config.php:100
 msgid "Modules to search"
 msgstr "ماژول ها برای جستجو"
 
-#: config/config.php:93
+#: config/config.php:101
 msgid "Only specified modules are allowed to search, separated by \",\"."
 msgstr ""
 "تنها ماژول های مشخص شده برای جستجو در دسترس هستند. با استفاده از \",\" جدا "
@@ -167,3 +183,7 @@ msgstr ""
 #: config/module.php:13
 msgid "Search service applications."
 msgstr "ابزار سرویس جستجو"
+
+#: config/navigation.php:17 config/page.php:17 config/permission.php:17
+msgid "Dictionary"
+msgstr ""

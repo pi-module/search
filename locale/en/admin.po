@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2016-04-16 10:58+0430\n"
-"PO-Revision-Date: 2016-04-16 10:58+0430\n"
+"POT-Creation-Date: 2016-05-17 16:10+0430\n"
+"PO-Revision-Date: 2016-05-17 16:10+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -55,109 +55,129 @@ msgid "Module for search"
 msgstr ""
 
 #: config/block.php:52
-msgid "Use block effects"
+msgid "Search on current module"
 msgstr ""
 
 #: config/block.php:53
+msgid "Show or hide option for search on current module"
+msgstr ""
+
+#: config/block.php:59
+msgid "Use block effects"
+msgstr ""
+
+#: config/block.php:60
 msgid "Use block effects or set custom effect on theme"
 msgstr ""
 
 #: config/config.php:12
-msgid "Leading search result limit"
+msgid "Save search log"
 msgstr ""
 
 #: config/config.php:13
-msgid "Number of found items on leading page."
-msgstr ""
-
-#: config/config.php:19
-msgid "List search result limit"
+msgid "It make your website little slow"
 msgstr ""
 
 #: config/config.php:20
-msgid "Number of found items on list page."
+msgid "Leading search result limit"
 msgstr ""
 
-#: config/config.php:26
-msgid "Separate query"
+#: config/config.php:21
+msgid "Number of found items on leading page."
 msgstr ""
 
 #: config/config.php:27
-msgid "Separate input keyword by space"
+msgid "List search result limit"
+msgstr ""
+
+#: config/config.php:28
+msgid "Number of found items on list page."
 msgstr ""
 
 #: config/config.php:34
-msgid "Minimum query"
+msgid "Separate query"
 msgstr ""
 
 #: config/config.php:35
-msgid "Minimum length for query term."
-msgstr ""
-
-#: config/config.php:41
-msgid "Search interval limit"
+msgid "Separate input keyword by space"
 msgstr ""
 
 #: config/config.php:42
-msgid "Limit for search time interval."
+msgid "Minimum query"
 msgstr ""
 
-#: config/config.php:48
-msgid "Anonymous interval limit"
+#: config/config.php:43
+msgid "Minimum length for query term."
 msgstr ""
 
 #: config/config.php:49
+msgid "Search interval limit"
+msgstr ""
+
+#: config/config.php:50
+msgid "Limit for search time interval."
+msgstr ""
+
+#: config/config.php:56
+msgid "Anonymous interval limit"
+msgstr ""
+
+#: config/config.php:57
 msgid "Limit for anonymous search time interval."
 msgstr ""
 
-#: config/config.php:55
+#: config/config.php:63
 msgid "Log search terms"
 msgstr ""
 
-#: config/config.php:62
+#: config/config.php:70
 msgid "Search result cache"
 msgstr ""
 
-#: config/config.php:68
+#: config/config.php:76
 msgid "Hot search"
 msgstr ""
 
-#: config/config.php:69
+#: config/config.php:77
 msgid "Hot words for global auto-complete, separated by comma `,`."
 msgstr ""
 
-#: config/config.php:75
+#: config/config.php:83
 msgid "Google local host"
 msgstr ""
 
-#: config/config.php:76
+#: config/config.php:84
 msgid "Specify a google local host if it is not https://www.google.com"
 msgstr ""
 
-#: config/config.php:81
+#: config/config.php:89
 msgid "Google custom search code"
 msgstr ""
 
-#: config/config.php:82
+#: config/config.php:90
 msgid "Google CSE provided at https://www.google.com/cse/"
 msgstr ""
 
-#: config/config.php:87
+#: config/config.php:95
 msgid "Baidu custom search code"
 msgstr ""
 
-#: config/config.php:88
+#: config/config.php:96
 msgid "Custom search provided by Baidu at http://zhanzhang.baidu.com/search/"
 msgstr ""
 
-#: config/config.php:92
+#: config/config.php:100
 msgid "Modules to search"
 msgstr ""
 
-#: config/config.php:93
+#: config/config.php:101
 msgid "Only specified modules are allowed to search, separated by \",\"."
 msgstr ""
 
 #: config/module.php:13
 msgid "Search service applications."
+msgstr ""
+
+#: config/navigation.php:17 config/page.php:17 config/permission.php:17
+msgid "Dictionary"
 msgstr ""

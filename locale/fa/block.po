@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2016-04-16 10:29+0430\n"
-"PO-Revision-Date: 2016-04-16 10:29+0430\n"
+"POT-Creation-Date: 2016-05-17 16:12+0430\n"
+"PO-Revision-Date: 2016-05-17 16:12+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa\n"
@@ -23,7 +23,11 @@ msgstr "سراسری"
 msgid "Current module"
 msgstr "ماژول فعلی"
 
-#: template/block/search.phtml:45 template/block/search.phtml:56
+#: template/block/search.phtml:42
+msgid "Searching, please wait ..."
+msgstr "در حال جستجو ، لطفا چند لحظه صبر کنید ..."
+
+#: template/block/search.phtml:50 template/block/search.phtml:63
 msgid "Search"
 msgstr "جستجو"
 
