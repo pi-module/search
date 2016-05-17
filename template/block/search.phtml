@@ -3,38 +3,43 @@
         <?php if ($block['options']['block-effect']) {
             $script = <<<'EOT'
 (function($){
-    var MIN_LENGTH = %s;
-    $("#search-keyword").keyup(function () {
+    var length = %s;
+    var timer = null;
+    function search() {
         var keyword = $("#search-keyword").val();
-        if (keyword.length >= MIN_LENGTH) {
+        if (keyword.length >= length) {
             $.get("%s", {q: keyword}).done(function (data) {
-                    $('.search-results').html('');
-                    var results = jQuery.parseJSON(data);
-                    $(results).each(function (key, value) {
-                        if (value.image != '') {
-                            $('.search-results').append('<li' + value.class + '><a title="' + value.title + '" href="' + value.url + '"><img src="' + value.image + '" alt="' + value.title + '"> ' + value.title + '</a></li>');
-                        } else if (value.icon != '') {
-                            $('.search-results').append('<li' + value.class + '><a title="' + value.title + '" href="' + value.url + '"><i class="fa ' + value.icon + '"></i> ' + value.title + '</a></li>');
-                        } else {
-                            $('.search-results').append('<li' + value.class + '><a title="' + value.title + '" href="' + value.url + '">' + value.title + '</a></li>');
-                        }
-                    })
-                });
+                $('.search-results').html('');
+                var results = jQuery.parseJSON(data);
+                $(results).each(function (key, value) {
+                    if (value.image != '') {
+                        $('.search-results').append('<li' + value.class + '><a title="' + value.title + '" href="' + value.url + '"><img src="' + value.image + '" alt="' + value.title + '"> ' + value.title + '</a></li>');
+                    } else if (value.icon != '') {
+                        $('.search-results').append('<li' + value.class + '><a title="' + value.title + '" href="' + value.url + '"><i class="fa ' + value.icon + '"></i> ' + value.title + '</a></li>');
+                    } else {
+                        $('.search-results').append('<li' + value.class + '><a title="' + value.title + '" href="' + value.url + '">' + value.title + '</a></li>');
+                    }
+                })
+            });
         } else {
             $('.search-results').html('');
         }
-    });
-    $("#search-keyword").blur(function () {
+    }
+    $("#search-keyword").keyup(function() {
+        clearTimeout(timer);
+        timer = setTimeout(search, 1500);
+    }).blur(function () {
         $(".search-results").fadeOut(500);
     }).focus(function () {
-        $(".search-results").show();
+        $(".search-results").show().append('<li><a>%s</a></li>');
     });
 })(jQuery)
 EOT;
             $script = sprintf(
                 $script,
                 $block['length'],
-                $block['ajax']
+                $block['ajax'],
+                _b('Searching, please wait ...')
             );
             $this->jQuery();
             $this->footScript()->appendScript($script);
@@ -47,7 +52,6 @@ EOT;
                     <button class="btn btn-default">
                         <i class="fa fa-search"></i>
                     </button>
-
                 </div>
             </div>
         </form>

@@ -27,8 +27,8 @@ class IndexController extends ActionController
      */
     public function indexAction()
     {
-        $module     = $this->params('m');
-        $service    = $this->params('s');
+        $module = $this->params('m');
+        $service = $this->params('s');
         if ($module) {
             $this->searchModule($module);
         } elseif ($service) {
@@ -59,13 +59,12 @@ class IndexController extends ActionController
      */
     public function ajaxAction()
     {
-        $query      = $this->params('q');
-        $modules    = $this->getModules($query);
-        $list       = array();
+        $query = $this->params('q');
+        $modules = $this->getModules($query);
+        $list = array();
 
         if ($query) {
-            $total  = 0;
-            $terms  = array();
+            $total = 0;
             if (!$this->checkFlood()) {
                 $list[] = array(
                     'class' => '',
@@ -75,9 +74,9 @@ class IndexController extends ActionController
                     'image' => '',
                 );
             } else {
-                $terms  = $this->parseQuery($query);
+                $terms = $this->parseQuery($query);
                 if ($terms) {
-                    $limit  = $this->config('leading_limit');
+                    $limit = $this->config('leading_limit');
                     $result = $this->query($terms, $limit);
                     foreach ($result as $name => $data) {
                         $total += $data->getTotal();
@@ -144,21 +143,21 @@ class IndexController extends ActionController
      */
     protected function searchGlobal()
     {
-        $query      = $this->params('q');
-        $modules    = $this->getModules($query);
+        $query = $this->params('q');
+        $modules = $this->getModules($query);
 
         if ($query) {
-            $total  = 0;
-            $terms  = array();
-            $flood  = false;
+            $total = 0;
+            $terms = array();
+            $flood = false;
             if (!$this->checkFlood()) {
-                $flood  = true;
+                $flood = true;
             } else {
-                $terms  = $this->parseQuery($query);
+                $terms = $this->parseQuery($query);
             }
 
             if ($terms) {
-                $limit  = $this->config('leading_limit');
+                $limit = $this->config('leading_limit');
                 $result = $this->query($terms, $limit);
             } else {
                 $result = array();
@@ -167,23 +166,23 @@ class IndexController extends ActionController
                 $total += $data->getTotal();
             }
             $this->view()->assign(array(
-                'query'     => $query,
-                'result'    => $result,
-                'total'     => $total,
-                'flood'     => $flood,
+                'query' => $query,
+                'result' => $result,
+                'total' => $total,
+                'flood' => $flood,
             ));
             $this->view()->setTemplate('search-result');
         } else {
             $this->view()->assign(array(
-                'query'     => ''
+                'query' => ''
             ));
             $this->view()->setTemplate('search-home');
         }
 
         $this->view()->assign(array(
-            'modules'       => $modules,
-            'service'       => $this->getService(),
-            'searchModule'  => ''
+            'modules' => $modules,
+            'service' => $this->getService(),
+            'searchModule' => ''
         ));
     }
 
@@ -196,8 +195,8 @@ class IndexController extends ActionController
      */
     protected function searchModule($module = '')
     {
-        $query  = $this->params('q');
-        $page   = $this->params('page') ?: 1;
+        $query = $this->params('q');
+        $page = $this->params('page') ?: 1;
         $module = $module ?: $this->params('m');
 
         $modules = $this->getModules($query);
@@ -205,33 +204,33 @@ class IndexController extends ActionController
             $this->redirect()->toRoute('search', array('q' => $query));
             return;
         }
-        
+
         if ($query) {
             $result = array();
-            $terms  = array();
-            $total  = 0;
-            $limit  = 0;
-            $flood  = false;
+            $terms = array();
+            $total = 0;
+            $limit = 0;
+            $flood = false;
             if (!$this->checkFlood()) {
-                $flood  = true;
+                $flood = true;
             } else {
-                $terms  = $this->parseQuery($query);
+                $terms = $this->parseQuery($query);
             }
             if ($terms) {
-                $limit  = $this->config('list_limit');
+                $limit = $this->config('list_limit');
                 $offset = $limit * ($page - 1);
                 $result = $this->query($terms, $limit, $offset, $module);
-                $total  = $result ? $result->getTotal() : 0;
+                $total = $result ? $result->getTotal() : 0;
             }
             if ($total && $total > $limit) {
                 $paginator = Paginator::factory($total, array(
                     'limit' => $limit,
-                    'page'  => $page,
-                    'url_options'   => array(
-                        'params'    => array(
+                    'page' => $page,
+                    'url_options' => array(
+                        'params' => array(
                             'm' => $module,
                         ),
-                        'options'   => array(
+                        'options' => array(
                             'query' => array(
                                 'q' => $query,
                             ),
@@ -242,10 +241,10 @@ class IndexController extends ActionController
                 $paginator = null;
             }
             $this->view()->assign(array(
-                'query'     => $query,
-                'result'    => $result,
-                'total'     => $total,
-                'flood'     => $flood,
+                'query' => $query,
+                'result' => $result,
+                'total' => $total,
+                'flood' => $flood,
                 'paginator' => $paginator,
             ));
             $this->view()->setTemplate('search-module-result');
@@ -253,9 +252,9 @@ class IndexController extends ActionController
             $this->view()->setTemplate('search-home');
         }
         $this->view()->assign(array(
-            'modules'       => $modules,
-            'searchModule'  => $module,
-            'service'       => $this->getService(),
+            'modules' => $modules,
+            'searchModule' => $module,
+            'service' => $this->getService(),
         ));
     }
 
@@ -268,8 +267,8 @@ class IndexController extends ActionController
      */
     protected function searchService($service = '')
     {
-        $query      = $this->params('q');
-        $service    = $service ?: $this->params('service');
+        $query = $this->params('q');
+        $service = $service ?: $this->params('service');
         if (!$service) {
             $this->redirect()->toRoute('search', array('q' => $query));
             return;
@@ -284,9 +283,9 @@ class IndexController extends ActionController
                 $host = trim($host, '/');
             }
             $this->view()->assign('google', array(
-                'code'  => $code,
-                'host'  => $host,
-                'q'     => $query,
+                'code' => $code,
+                'host' => $host,
+                'q' => $query,
             ));
             $this->view()->setTemplate('search-google');
 
@@ -329,7 +328,7 @@ class IndexController extends ActionController
             $terms = array_merge($terms, explode(' ', $string));
 
             array_walk($terms, function ($term) use (&$result, $length) {
-                $term = trim($term);
+                $term = _strip($term);
                 if (!$length || strlen($term) >= $length) {
                     $result[] = $term;
                 }
@@ -345,19 +344,24 @@ class IndexController extends ActionController
     /**
      * Do search query
      *
-     * @param array        $terms
-     * @param int          $limit
-     * @param int          $offset
+     * @param array $terms
+     * @param int $limit
+     * @param int $offset
      * @param string|array $in
      *
      * @return array
      */
     protected function query(array $terms, $limit = 0, $offset = 0, $in = array())
     {
-        $moduleSearch   = Pi::registry('search')->read();
-        $moduleList     = Pi::registry('modulelist')->read();
-        $modules        = (array) $in;
-        $result         = array();
+        $moduleSearch = Pi::registry('search')->read();
+        $moduleList = Pi::registry('modulelist')->read();
+        $modules = (array)$in;
+        $result = array();
+
+        // Save search log
+        if ($this->config('save_log')) {
+            Pi::api('log', 'search')->saveLog($terms);
+        }
 
         if ($this->config('search_in')) {
             $modulesSpecified = explode(',', $this->config('search_in'));
@@ -398,9 +402,9 @@ class IndexController extends ActionController
      */
     protected function getModules($query = '')
     {
-        $moduleSearch   = Pi::registry('search')->read();
-        $moduleList     = Pi::registry('modulelist')->read();
-        $modules        = array();
+        $moduleSearch = Pi::registry('search')->read();
+        $moduleList = Pi::registry('modulelist')->read();
+        $modules = array();
 
         if ($this->config('search_in')) {
             $modulesSpecified = explode(',', $this->config('search_in'));
@@ -413,7 +417,7 @@ class IndexController extends ActionController
             }
             $moduleSearch = $list;
         }
-        
+
         foreach (array_keys($moduleSearch) as $name) {
             if (!isset($moduleList[$name])) {
                 continue;
@@ -422,20 +426,20 @@ class IndexController extends ActionController
             $url = Pi::url($this->url(
                 '',
                 array(
-                    'action'    => 'module',
-                    'm'         => $name
+                    'action' => 'module',
+                    'm' => $name
                 ),
                 array(
-                    'query' => array (
+                    'query' => array(
                         'q' => $query,
                     ),
                 )
             ));
             $modules[$name] = array(
-                'id'        => $node['id'],
-                'title'     => $node['title'],
-                'icon'      => $node['icon'],
-                'url'       => $url,
+                'id' => $node['id'],
+                'title' => $node['title'],
+                'icon' => $node['icon'],
+                'url' => $url,
             );
         };
 
@@ -492,20 +496,20 @@ class IndexController extends ActionController
         $list = array(
             'google' => array(
                 'title' => __('Google'),
-                'url'   => $googleQuery,
+                'url' => $googleQuery,
             ),
-/*            'bing' => array(
-                'title' => __('Bing'),
-                'url'   => $bingQuery,
-            ),*/
+            /*            'bing' => array(
+                            'title' => __('Bing'),
+                            'url'   => $bingQuery,
+                        ),*/
             'baidu' => array(
                 'title' => __('Baidu'),
-                'url'   => $baiduQuery,
+                'url' => $baiduQuery,
             ),
-/*            'sogou' => array(
-                'title' => __('Sogou'),
-                'url'   => $sogouQuery,
-            ),*/
+            /*            'sogou' => array(
+                            'title' => __('Sogou'),
+                            'url'   => $sogouQuery,
+                        ),*/
         );
 
         if ($service) {

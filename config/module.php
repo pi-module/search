@@ -11,7 +11,7 @@ return array(
     'meta'  => array(
         'title'         => _a('Search'),
         'description'   => _a('Search service applications.'),
-        'version'       => '1.1.3',
+        'version'       => '1.1.8',
         'license'       => 'New BSD',
         'icon'          => 'fa-search',
     ),
@@ -26,6 +26,9 @@ return array(
             'sqlfile'   => 'sql/mysql.sql',
         ),
         'config'        => 'config.php',
+        'permission'    => 'permission.php',
+        'page'          => 'page.php',
+        'navigation'    => 'navigation.php',
         'block'         => 'block.php',
         'route'         => 'route.php',
     ),

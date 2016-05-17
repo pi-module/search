@@ -8,6 +8,14 @@
  */
 
 $config = array(
+    'save_log' => array(
+        'title'         => _t('Save search log'),
+        'description'   => _t('It make your website little slow'),
+        'edit'          => 'checkbox',
+        'filter'        => 'number_int',
+        'value'         => 0
+    ),
+
     'leading_limit' => array(
         'title'         => _t('Leading search result limit'),
         'description'   => _t('Number of found items on leading page.'),
