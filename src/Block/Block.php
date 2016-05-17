@@ -28,7 +28,7 @@ class Block
         if ($options['module'] == 'all' && $options['type'] == 'normal') {
             $module = Pi::service('module')->current();
             $modules = Pi::registry('search')->read();
-            if ($module && isset($modules[$module])) {
+            if ($module && isset($modules[$module]) && $options['current-module']) {
                 $list = array(
                    ''       => _b('Global'),
                    $module  => _b('Current module'),

@@ -1,6 +1,6 @@
 <div class="search-block">
     <?php if ($block['options']['type'] == 'ajax') { ?>
-        <?php if ($block['block-effect']) {
+        <?php if ($block['options']['block-effect']) {
             $script = <<<'EOT'
 (function($){
     var MIN_LENGTH = %s;
@@ -40,14 +40,17 @@ EOT;
             $this->footScript()->appendScript($script);
             $this->css($this->assetModule('front/block.css', 'search'));
         } ?>
-        <div class="form-group">
+        <form method="get" action="<?php echo $block['action']; ?>" <?php if (!empty($block['options']['target'])) { echo ' target="' . $block['options']['target'] . '"'; } ?>>
             <div class="input-group">
-                <input type="text" value="" placeholder="<?php echo _b('Search'); ?>" id="search-keyword" class="form-control">
-                <div class="input-group-addon">
-                    <i class="fa fa-search"></i>
+                <input id="search-keyword" type="text" class="form-control" name="q" placeholder="<?php echo _b('Search'); ?>" autocomplete="off">
+                <div class="input-group-btn">
+                    <button class="btn btn-default">
+                        <i class="fa fa-search"></i>
+                    </button>
+
                 </div>
             </div>
-        </div>
+        </form>
         <ul class="search-results dropdown-menu"></ul>
     <?php } else { ?>
         <form method="get" action="<?php echo $block['action']; ?>"
@@ -81,7 +84,7 @@ EOT;
                 </div>
             </div>
         </form>
-        <?php if (!empty($block['list'])) {
+        <?php if (!empty($block['list']) && $block['options']['block-effect']) {
             $script = <<<'EOT'
     $('#js-search-menu').on('click', 'a', function(e) {
     var $this = $(this);

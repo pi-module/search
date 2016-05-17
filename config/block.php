@@ -21,7 +21,7 @@ return array(
                     'options'    => array(
                         'options'   => array(
                             'normal'    => _a('Normal'),
-                            'ajax'   => _a('Ajax'),
+                            'ajax'      => _a('Ajax'),
                         ),
                     ),
                 ),
@@ -46,7 +46,14 @@ return array(
                 'edit'          => array(
                     'type'      => 'Module\Search\Form\Element\Module',
                 ),
-                'value'         => 'all', 
+                'value'         => 'all',
+            ),
+            'current-module' => array(
+                'title' => _a('Search on current module'),
+                'description' => _a('Show or hide option for search on current module'),
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 1,
             ),
             'block-effect' => array(
                 'title' => _a('Use block effects'),
