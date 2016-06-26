@@ -359,7 +359,7 @@ class IndexController extends ActionController
             switch (Pi::config('locale')) {
                 // Set for persian language
                 case 'fa':
-                    $term = str_replace( array( 'ي','ك','٤','٥','٦','ة' ), array( 'ی','ک','۴','۵','۶','ه' ), $term);
+                    $term = str_replace(array('ي', 'ك', '٤', '٥', '٦', 'ة'), array('ی', 'ک', '۴', '۵', '۶', 'ه'), $term);
                     break;
             }
         }
