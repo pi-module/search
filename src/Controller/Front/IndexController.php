@@ -313,11 +313,12 @@ class IndexController extends ActionController
     protected function parseQuery($query = '')
     {
         $result = array();
-
+        // Set term length
+        $length = $this->config('min_length');
+        // Check for separate query or not
         if ($this->config('separate_query')) {
             // Text quoted by `"` or `'` should be matched exactly
             $pattern = '`(?:(?:"(?:\\"|[^"])+")|(?:\'(?:\\\'|[^\'])+\'))`is';
-            $length = $this->config('min_length');
 
             $terms = array();
             $callback = function ($match) use (&$terms) {
@@ -330,15 +331,39 @@ class IndexController extends ActionController
             array_walk($terms, function ($term) use (&$result, $length) {
                 $term = _strip($term);
                 if (!$length || strlen($term) >= $length) {
-                    $result[] = $term;
+                    $result[] = $this->parseTerm($term);
                 }
             });
             $result = array_filter(array_unique($result));
         } else {
-            $result[] = _strip($query);
+            if (!$length || strlen($query) >= $length) {
+                $result[] = $this->parseTerm($query);
+            }
         }
-
+        // return result as array
         return $result;
+    }
+
+    /**
+     * Parse security and localization search term from query string
+     *
+     * @param string $query
+     *
+     * @return array
+     */
+    protected function parseTerm($term)
+    {
+        $term = _strip($term);
+        // localize query
+        if ($this->config('localize_query')) {
+            switch (Pi::config('locale')) {
+                // Set for persian language
+                case 'fa':
+                    $term = str_replace( array( 'ي','ك','٤','٥','٦','ة' ), array( 'ی','ک','۴','۵','۶','ه' ), $term);
+                    break;
+            }
+        }
+        return $term;
     }
 
     /**

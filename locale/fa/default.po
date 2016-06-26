@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2016-05-23 15:04+0430\n"
-"PO-Revision-Date: 2016-05-23 15:04+0430\n"
+"POT-Creation-Date: 2016-06-26 13:21+0430\n"
+"PO-Revision-Date: 2016-06-26 13:21+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa\n"
@@ -37,11 +37,11 @@ msgstr "هیچ نتیجه ای یافت نشد"
 msgid "Please input term for search"
 msgstr "لطفا یک عبارت برای جستجو وارد کنید"
 
-#: src/Controller/Front/IndexController.php:498
+#: src/Controller/Front/IndexController.php:523
 msgid "Google"
 msgstr "گوگل"
 
-#: src/Controller/Front/IndexController.php:506
+#: src/Controller/Front/IndexController.php:531
 msgid "Baidu"
 msgstr "بایدو"
 

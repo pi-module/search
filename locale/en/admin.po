@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2016-05-23 15:04+0430\n"
-"PO-Revision-Date: 2016-05-23 15:04+0430\n"
+"POT-Creation-Date: 2016-06-26 13:19+0430\n"
+"PO-Revision-Date: 2016-06-26 13:19+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -71,43 +71,43 @@ msgid "Use block effects or set custom effect on theme"
 msgstr ""
 
 #: config/config.php:12
-msgid "Save search log"
-msgstr ""
-
-#: config/config.php:13
-msgid "It make your website little slow"
-msgstr ""
-
-#: config/config.php:20
 msgid "Leading search result limit"
 msgstr ""
 
-#: config/config.php:21
+#: config/config.php:13
 msgid "Number of found items on leading page."
 msgstr ""
 
-#: config/config.php:27
+#: config/config.php:19
 msgid "List search result limit"
 msgstr ""
 
-#: config/config.php:28
+#: config/config.php:20
 msgid "Number of found items on list page."
 msgstr ""
 
-#: config/config.php:34
+#: config/config.php:26
 msgid "Separate query"
 msgstr ""
 
-#: config/config.php:35
+#: config/config.php:27
 msgid "Separate input keyword by space"
 msgstr ""
 
-#: config/config.php:42
+#: config/config.php:34
 msgid "Minimum query"
 msgstr ""
 
-#: config/config.php:43
+#: config/config.php:35
 msgid "Minimum length for query term."
+msgstr ""
+
+#: config/config.php:41
+msgid "Localize query"
+msgstr ""
+
+#: config/config.php:42
+msgid "Localize query by selected language on website"
 msgstr ""
 
 #: config/config.php:49
@@ -127,50 +127,54 @@ msgid "Limit for anonymous search time interval."
 msgstr ""
 
 #: config/config.php:63
-msgid "Log search terms"
+msgid "Save search log"
 msgstr ""
 
-#: config/config.php:70
+#: config/config.php:64
+msgid "It make your website little slow"
+msgstr ""
+
+#: config/config.php:71
 msgid "Search result cache"
 msgstr ""
 
-#: config/config.php:76
+#: config/config.php:77
 msgid "Hot search"
 msgstr ""
 
-#: config/config.php:77
+#: config/config.php:78
 msgid "Hot words for global auto-complete, separated by comma `,`."
 msgstr ""
 
-#: config/config.php:83
+#: config/config.php:84
 msgid "Google local host"
 msgstr ""
 
-#: config/config.php:84
+#: config/config.php:85
 msgid "Specify a google local host if it is not https://www.google.com"
 msgstr ""
 
-#: config/config.php:89
+#: config/config.php:90
 msgid "Google custom search code"
 msgstr ""
 
-#: config/config.php:90
+#: config/config.php:91
 msgid "Google CSE provided at https://www.google.com/cse/"
 msgstr ""
 
-#: config/config.php:95
+#: config/config.php:96
 msgid "Baidu custom search code"
 msgstr ""
 
-#: config/config.php:96
+#: config/config.php:97
 msgid "Custom search provided by Baidu at http://zhanzhang.baidu.com/search/"
 msgstr ""
 
-#: config/config.php:100
+#: config/config.php:101
 msgid "Modules to search"
 msgstr ""
 
-#: config/config.php:101
+#: config/config.php:102
 msgid "Only specified modules are allowed to search, separated by \",\"."
 msgstr ""
 

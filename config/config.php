@@ -8,14 +8,6 @@
  */
 
 $config = array(
-    'save_log' => array(
-        'title'         => _t('Save search log'),
-        'description'   => _t('It make your website little slow'),
-        'edit'          => 'checkbox',
-        'filter'        => 'number_int',
-        'value'         => 0
-    ),
-
     'leading_limit' => array(
         'title'         => _t('Leading search result limit'),
         'description'   => _t('Number of found items on leading page.'),
@@ -45,6 +37,14 @@ $config = array(
         'filter'        => 'int',
     ),
 
+    'localize_query' => array(
+        'title'         => _t('Localize query'),
+        'description'   => _t('Localize query by selected language on website'),
+        'edit'          => 'checkbox',
+        'filter'        => 'number_int',
+        'value'         => 0
+    ),
+
     'search_interval' => array(
         'title'         => _t('Search interval limit'),
         'description'   => _t('Limit for search time interval.'),
@@ -59,11 +59,12 @@ $config = array(
         'filter'        => 'int',
     ),
 
-    'logging'   => array(
-        'title'         => _t('Log search terms'),
+    'save_log' => array(
+        'title'         => _t('Save search log'),
+        'description'   => _t('It make your website little slow'),
         'edit'          => 'checkbox',
-        'value'         => 1,
-        'filter'        => 'int',
+        'filter'        => 'number_int',
+        'value'         => 0
     ),
 
     'cache'     => array(
