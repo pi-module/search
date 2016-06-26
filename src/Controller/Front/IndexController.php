@@ -102,6 +102,13 @@ class IndexController extends ActionController
                                     'image' => $image,
                                 );
                             }
+                            $list[] = array(
+                                'class' => ' class="text-right"',
+                                'title' => __('See more results'),
+                                'url' => $modules[$name]['url'],
+                                'icon' => '',
+                                'image' => '',
+                            );
                         }
                     }
                     if (empty($list) && $total == 0) {

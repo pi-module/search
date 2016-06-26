@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2016-06-26 13:19+0430\n"
-"PO-Revision-Date: 2016-06-26 13:19+0430\n"
+"POT-Creation-Date: 2016-06-26 13:24+0430\n"
+"PO-Revision-Date: 2016-06-26 13:24+0430\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -26,22 +26,26 @@ msgstr ""
 msgid "Search result of %s on %s"
 msgstr ""
 
-#: src/Controller/Front/IndexController.php:110
+#: src/Controller/Front/IndexController.php:107
+msgid "See more results"
+msgstr ""
+
+#: src/Controller/Front/IndexController.php:117
 #: template/front/search-module-result.phtml:48
 #: template/front/search-result.phtml:16
 msgid "No result found."
 msgstr ""
 
-#: src/Controller/Front/IndexController.php:119
-#: src/Controller/Front/IndexController.php:129
+#: src/Controller/Front/IndexController.php:126
+#: src/Controller/Front/IndexController.php:136
 msgid "Please input term for search"
 msgstr ""
 
-#: src/Controller/Front/IndexController.php:523
+#: src/Controller/Front/IndexController.php:530
 msgid "Google"
 msgstr ""
 
-#: src/Controller/Front/IndexController.php:531
+#: src/Controller/Front/IndexController.php:538
 msgid "Baidu"
 msgstr ""
 
