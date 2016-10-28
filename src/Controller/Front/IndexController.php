@@ -113,7 +113,7 @@ class IndexController extends ActionController
                     }
                     if (empty($list) && $total == 0) {
                         $list[] = array(
-                            'class' => '',
+                            'class' => ' class="search-info-text"',
                             'title' => __('No result found.'),
                             'url' => '#',
                             'icon' => '',
@@ -122,7 +122,7 @@ class IndexController extends ActionController
                     }
                 } else {
                     $list[] = array(
-                        'class' => '',
+                        'class' => ' class="search-info-text"',
                         'title' => __('Please input term for search'),
                         'url' => '#',
                         'icon' => '',
@@ -366,7 +366,10 @@ class IndexController extends ActionController
             switch (Pi::config('locale')) {
                 // Set for persian language
                 case 'fa':
-                    $term = str_replace(array('ي', 'ك', '٤', '٥', '٦', 'ة'), array('ی', 'ک', '۴', '۵', '۶', 'ه'), $term);
+                    $term = str_replace(
+                        array('ي', 'ك', '٤', '٥', '٦', 'ة'),
+                        array('ی', 'ک', '۴', '۵', '۶', 'ه'),
+                        $term);
                     break;
             }
         }

@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2016-06-26 13:21+0430\n"
-"PO-Revision-Date: 2016-06-26 13:21+0430\n"
+"POT-Creation-Date: 2016-10-28 11:49+0330\n"
+"PO-Revision-Date: 2016-10-28 11:50+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-Basepath: ../..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: _b\n"
@@ -23,11 +23,15 @@ msgstr "سراسری"
 msgid "Current module"
 msgstr "ماژول فعلی"
 
-#: template/block/search.phtml:42
+#: template/block/search.phtml:48
+msgid "Please input term for search"
+msgstr "لطفا یک عبارت برای جستجو وارد کنید"
+
+#: template/block/search.phtml:49
 msgid "Searching, please wait ..."
 msgstr "در حال جستجو ، لطفا چند لحظه صبر کنید ..."
 
-#: template/block/search.phtml:50 template/block/search.phtml:63
+#: template/block/search.phtml:57 template/block/search.phtml:70
 msgid "Search"
 msgstr "جستجو"
 

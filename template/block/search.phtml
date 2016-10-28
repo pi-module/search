@@ -27,11 +27,17 @@
     }
     $("#search-keyword").keyup(function() {
         clearTimeout(timer);
-        timer = setTimeout(search, 1500);
+        timer = setTimeout(search, 500);
     }).blur(function () {
         $(".search-results").fadeOut(500);
     }).focus(function () {
-        $(".search-results").show().append('<li><a>%s</a></li>');
+        var keyword = $("#search-keyword").val();
+        $(".search-info-text").remove();
+        if (keyword.length == 0) {
+            $(".search-results").show().append('<li class="search-info-text"><a>%s</a></li>');
+        } else {
+            $(".search-results").show().append('<li class="search-info-text"><a>%s</a></li>');
+        }
     });
 })(jQuery)
 EOT;
@@ -39,6 +45,7 @@ EOT;
                 $script,
                 $block['length'],
                 $block['ajax'],
+                _b('Please input term for search'),
                 _b('Searching, please wait ...')
             );
             $this->jQuery();
