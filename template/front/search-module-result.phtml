@@ -13,30 +13,35 @@ $this->headMeta('noindex', 'robots');
     <?php include $this->template('./search-form.phtml'); ?>
     <div class="clearfix">
         <?php if ($total >= 1) { ?>
+            <?php $template = $this->template('search-result', 'front', $searchModule); ?>
             <?php foreach ($result as $item) { ?>
-                <div class="search-result-item clearfix">
-                    <?php if (!empty($item['image'])) { ?>
-                        <div class="col-md-2">
-                            <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
-                                <img class="img-responsive img-rounded" src="<?php echo _escape($item['image']); ?>"
-                                     alt="<?php echo _escape($item['title']); ?>">
-                            </a>
+                <?php if(!empty($template)) { ?>
+                    <?php include $template; ?>
+                <?php } else { ?>
+                    <div class="search-result-item clearfix">
+                        <?php if (!empty($item['image'])) { ?>
+                            <div class="col-md-2">
+                                <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
+                                    <img class="img-responsive img-rounded" src="<?php echo _escape($item['image']); ?>"
+                                         alt="<?php echo _escape($item['title']); ?>">
+                                </a>
+                            </div>
+                        <?php } ?>
+                        <div class="<?php if (!empty($item['image'])) { ?>col-md-10<?php } else { ?>col-md-12<?php } ?>">
+                            <h3>
+                                <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
+                                    <?php echo _escape($item['title']); ?>
+                                </a>
+                            </h3>
+                            <p class="clearfix">
+                                <?php echo _escape($item['content']); ?>
+                            </p>
+                            <p class="text-muted">
+                                <?php echo _date($item['time']); ?>
+                            </p>
                         </div>
-                    <?php } ?>
-                    <div class="<?php if (!empty($item['image'])) { ?>col-md-10<?php } else { ?>col-md-12<?php } ?>">
-                        <h3>
-                            <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
-                                <?php echo _escape($item['title']); ?>
-                            </a>
-                        </h3>
-                        <p class="clearfix">
-                            <?php echo _escape($item['content']); ?>
-                        </p>
-                        <p class="text-muted">
-                            <?php echo _date($item['time']); ?>
-                        </p>
                     </div>
-                </div>
+                <?php } ?>
             <?php } ?>
             <div class="clearfix">
                 <p class="pull-right text-muted">

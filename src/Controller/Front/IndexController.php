@@ -74,7 +74,7 @@ class IndexController extends ActionController
                     'image' => '',
                 );
             } else {
-                $terms = $this->parseQuery($query);
+                $terms = Pi::api('api', 'search')->parseQuery($query);
                 if ($terms) {
                     $limit = $this->config('leading_limit');
                     $result = $this->query($terms, $limit);
@@ -160,7 +160,7 @@ class IndexController extends ActionController
             if (!$this->checkFlood()) {
                 $flood = true;
             } else {
-                $terms = $this->parseQuery($query);
+                $terms = Pi::api('api', 'search')->parseQuery($query);
             }
 
             if ($terms) {
@@ -221,7 +221,7 @@ class IndexController extends ActionController
             if (!$this->checkFlood()) {
                 $flood = true;
             } else {
-                $terms = $this->parseQuery($query);
+                $terms = Pi::api('api', 'search')->parseQuery($query);
             }
             if ($terms) {
                 $limit = $this->config('list_limit');
@@ -247,6 +247,7 @@ class IndexController extends ActionController
             } else {
                 $paginator = null;
             }
+
             $this->view()->assign(array(
                 'query' => $query,
                 'result' => $result,
@@ -308,72 +309,6 @@ class IndexController extends ActionController
         header('location: ' . $url);
 
         exit();
-    }
-
-    /**
-     * Parse search terms from query string
-     *
-     * @param string $query
-     *
-     * @return array
-     */
-    protected function parseQuery($query = '')
-    {
-        $result = array();
-        // Set term length
-        $length = $this->config('min_length');
-        // Check for separate query or not
-        if ($this->config('separate_query')) {
-            // Text quoted by `"` or `'` should be matched exactly
-            $pattern = '`(?:(?:"(?:\\"|[^"])+")|(?:\'(?:\\\'|[^\'])+\'))`is';
-
-            $terms = array();
-            $callback = function ($match) use (&$terms) {
-                $terms[] = substr($match[0], 1, -1);
-                return ' ';
-            };
-            $string = preg_replace_callback($pattern, $callback, $query);
-            $terms = array_merge($terms, explode(' ', $string));
-
-            array_walk($terms, function ($term) use (&$result, $length) {
-                $term = _strip($term);
-                if (!$length || strlen($term) >= $length) {
-                    $result[] = $this->parseTerm($term);
-                }
-            });
-            $result = array_filter(array_unique($result));
-        } else {
-            if (!$length || strlen($query) >= $length) {
-                $result[] = $this->parseTerm($query);
-            }
-        }
-        // return result as array
-        return $result;
-    }
-
-    /**
-     * Parse security and localization search term from query string
-     *
-     * @param string $query
-     *
-     * @return array
-     */
-    protected function parseTerm($term)
-    {
-        $term = _strip($term);
-        // localize query
-        if ($this->config('localize_query')) {
-            switch (Pi::config('locale')) {
-                // Set for persian language
-                case 'fa':
-                    $term = str_replace(
-                        array('ي', 'ك', '٤', '٥', '٦', 'ة'),
-                        array('ی', 'ک', '۴', '۵', '۶', 'ه'),
-                        $term);
-                    break;
-            }
-        }
-        return $term;
     }
 
     /**

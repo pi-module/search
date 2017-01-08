@@ -53,10 +53,6 @@ class Log extends AbstractApi
                     $dictionary->term = $term;
                     $dictionary->save();
                 }
-
-                echo '<pre>';
-                print_r($rowset);
-                echo '</pre>';
             }
         }
     }
