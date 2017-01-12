@@ -97,13 +97,6 @@ class Api extends AbstractApi
 
     public function template($module)
     {
-        $template = sprintf('module/%s:front/search', $module);
-        //$template = ModuleTemplate::resolve($template);
-
-        //$resolver = new ModuleTemplateResolver;
-        //$template = $resolver->resolve($template);
-
-
-        return $template;
+        return sprintf('module/%s:front/search-result', $module);
     }
 }
