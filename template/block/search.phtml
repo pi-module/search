@@ -52,17 +52,25 @@ EOT;
             $this->footScript()->appendScript($script);
             $this->css($this->assetModule('front/block.css', 'search'));
         } ?>
-        <form method="get" action="<?php echo $block['action']; ?>" <?php if (!empty($block['options']['target'])) { echo ' target="' . $block['options']['target'] . '"'; } ?>>
-            <div class="input-group">
-                <input id="search-keyword" type="text" class="form-control" name="q" placeholder="<?php echo _b('Search'); ?>" autocomplete="off">
-                <div class="input-group-btn">
-                    <button class="btn btn-default">
-                        <i class="fa fa-search"></i>
-                    </button>
+        <div class="form-group">
+            <form method="get" action="<?php echo $block['action']; ?>" <?php if (!empty($block['options']['target'])) { echo ' target="' . $block['options']['target'] . '"'; } ?>>
+                <div class="input-group">
+                    <input id="search-keyword" type="text" class="form-control" name="q" placeholder="<?php echo _b('Search'); ?>" autocomplete="off">
+                    <?php if (!empty($block['options']['disable_submit_btn']) && $block['options']['disable_submit_btn']) : ?>
+                        <div class="input-group-addon">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    <?php else : ?>
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" >
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            </div>
-        </form>
-        <ul class="search-results dropdown-menu"></ul>
+            </form>
+            <ul class="search-results dropdown-menu"></ul>
+        </div>
     <?php } else { ?>
         <form method="get" action="<?php echo $block['action']; ?>"
             <?php if (!empty($block['options']['target'])) { echo ' target="' . $block['options']['target'] . '"'; } ?>>
@@ -88,9 +96,18 @@ EOT;
                         <?php if ($block['options']['module'] != 'all') { ?>
                             <input type="hidden" name="m" value="<?php echo $block['options']['module']; ?>">
                         <?php } ?>
-                        <button class="btn btn-default">
-                            <i class="fa fa-search"></i>
-                        </button>
+
+                        <?php if (!empty($block['options']['disable_submit_btn']) && $block['options']['disable_submit_btn']) : ?>
+                            <div class="input-group-addon">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        <?php else : ?>
+                            <button class="btn btn-default">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        <?php endif; ?>
+
+
                     <?php } ?>
                 </div>
             </div>

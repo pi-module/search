@@ -62,6 +62,12 @@ return array(
                 'filter' => 'number_int',
                 'value' => 1,
             ),
+            'disable_submit_btn' => array(
+                'title' => _a('Disable Submit button'),
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 0,
+            ),
         )
     ),
 );

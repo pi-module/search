@@ -86,12 +86,26 @@ $config = array(
         'value'         => 'https://www.google.com',
     ),
 
+    'google_enable' => array(
+        'title' => _a('Display Google link'),
+        'edit' => 'checkbox',
+        'filter' => 'number_int',
+        'value' => 1,
+    ),
+
     'google_code'       => array(
         'title'         => _t('Google custom search code'),
         'description'   => _t('Google CSE provided at https://www.google.com/cse/'),
         'value'         => '012766098119240378914:a6l0fuirq4a',
     ),
-    
+
+    'baidu_enable' => array(
+        'title' => _a('Display Baidu link'),
+        'edit' => 'checkbox',
+        'filter' => 'number_int',
+        'value' => 0,
+    ),
+
     'baidu_code'        => array(
         'title'         => _t('Baidu custom search code'),
         'description'   => _t('Custom search provided by Baidu at http://zhanzhang.baidu.com/search/'),
