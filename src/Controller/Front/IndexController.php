@@ -463,24 +463,21 @@ class IndexController extends ActionController
             return $link;
         };
 
-        $list = array(
-            'google' => array(
+        $list = array();
+
+        if($this->config('google_enable')){
+            $list['google'] = array(
                 'title' => __('Google'),
                 'url' => $googleQuery,
-            ),
-            /*            'bing' => array(
-                            'title' => __('Bing'),
-                            'url'   => $bingQuery,
-                        ),*/
-            'baidu' => array(
+            );
+        }
+
+        if($this->config('baidu_enable')){
+            $list['baidu'] = array(
                 'title' => __('Baidu'),
                 'url' => $baiduQuery,
-            ),
-            /*            'sogou' => array(
-                            'title' => __('Sogou'),
-                            'url'   => $sogouQuery,
-                        ),*/
-        );
+            );
+        }
 
         if ($service) {
             $result = isset($list[$service]) ? $list[$service] : null;
