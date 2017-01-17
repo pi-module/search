@@ -55,7 +55,7 @@ EOT;
         <div class="form-group">
             <form method="get" action="<?php echo $block['action']; ?>" <?php if (!empty($block['options']['target'])) { echo ' target="' . $block['options']['target'] . '"'; } ?>>
                 <div class="input-group">
-                    <input id="search-keyword" type="text" class="form-control" name="q" placeholder="<?php echo _b('Search'); ?>" autocomplete="off">
+                    <input id="search-keyword" type="text" class="form-control" name="q" placeholder="<?php echo $block['options']['descriptiontitle']; ?>" autocomplete="off">
                     <?php if (!empty($block['options']['disable_submit_btn']) && $block['options']['disable_submit_btn']) : ?>
                         <div class="input-group-addon">
                             <i class="fa fa-search"></i>
