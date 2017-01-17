@@ -44,9 +44,9 @@
     background-color: #cccccc;
 }
 
-.search-block .input-group,
-.search-block .btn,
-.search-block .input-group input[type=text]{
+.carousel-caption-search .search-block .input-group,
+.carousel-caption-search .search-block .btn,
+.carousel-caption-search .search-block .input-group input[type=text]{
     height: 45px;
 }
 

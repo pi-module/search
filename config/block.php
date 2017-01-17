@@ -68,6 +68,14 @@ return array(
                 'filter' => 'number_int',
                 'value' => 0,
             ),
+
+            'descriptiontitle' => array(
+                'title' => _b('Title field description'),
+                'description' => '',
+                'edit' => 'text',
+                'filter' => 'string',
+                'value' => _b('Search'),
+            ),
         )
     ),
 );
