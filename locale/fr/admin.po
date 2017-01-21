@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2017-01-21 16:44+0100\n"
-"PO-Revision-Date: 2017-01-21 16:44+0100\n"
+"POT-Creation-Date: 2017-01-21 16:52+0100\n"
+"PO-Revision-Date: 2017-01-21 16:52+0100\n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc Desrousseaux\n"
 "Language: fr_FR\n"
@@ -143,6 +143,26 @@ msgstr "Module Moteur de Recherche"
 #: config/navigation.php:17 config/page.php:17 config/permission.php:17
 msgid "Dictionary"
 msgstr "Dictionnaire"
+
+#: template/admin/dictionary-index.phtml:3
+msgid "List of top searched terms"
+msgstr "Top termes recherchés"
+
+#: template/admin/dictionary-index.phtml:7
+msgid "ID"
+msgstr "ID"
+
+#: template/admin/dictionary-index.phtml:8
+msgid "Term"
+msgstr "Termes"
+
+#: template/admin/dictionary-index.phtml:9
+msgid "Weight"
+msgstr "Poids"
+
+#: template/admin/dictionary-index.phtml:21
+msgid "Save log option for search module not active"
+msgstr "L'enregistrement des termes recherchés n'a pas été activé"
 
 #~ msgid "Search box."
 #~ msgstr "Block de recherche."
