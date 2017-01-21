@@ -9,61 +9,61 @@
 return array(
     'search'    => array(
         'name'          => 'search',
-        'title'         => _a('Search'),
-        'description'   => _a('Search box.'),
+        'title'         => _b('Search'),
+        'description'   => _b('Search box.'),
         'render'        => array('block', 'search'),
         'template'      => 'search',
         'config'        => array(
             'type' => array(
-                'title'         => _a('Search type'),
+                'title'         => _b('Search type'),
                 'edit'          => array(
                     'type'          => 'select',
                     'options'    => array(
                         'options'   => array(
-                            'normal'    => _a('Normal'),
-                            'ajax'      => _a('Ajax'),
+                            'normal'    => _b('Normal'),
+                            'ajax'      => _b('Ajax'),
                         ),
                     ),
                 ),
                 'value'         => 'normal',
             ),
             'target' => array(
-                'title'         => _a('Target'),
+                'title'         => _b('Target'),
                 'edit'          => array(
                     'type'          => 'select',
                     'options'    => array(
                         'options'   => array(
-                            '_self'    => _a('_self'),
-                            '_blank'   => _a('_blank'),
+                            '_self'    => _b('_self'),
+                            '_blank'   => _b('_blank'),
                         ),
                     ),
                 ),
                 'value'         => '_self',
             ),
             'module' => array(
-                'title'         => _a('Module'),
-                'description'   => _a('Module for search'),
+                'title'         => _b('Module'),
+                'description'   => _b('Module for search'),
                 'edit'          => array(
                     'type'      => 'Module\Search\Form\Element\Module',
                 ),
                 'value'         => 'all',
             ),
             'current-module' => array(
-                'title' => _a('Search on current module'),
-                'description' => _a('Show or hide option for search on current module'),
+                'title' => _b('Search on current module'),
+                'description' => _b('Show or hide option for search on current module'),
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'block-effect' => array(
-                'title' => _a('Use block effects'),
-                'description' => _a('Use block effects or set custom effect on theme'),
+                'title' => _b('Use block effects'),
+                'description' => _b('Use block effects or set custom effect on theme'),
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 1,
             ),
             'disable_submit_btn' => array(
-                'title' => _a('Disable Submit button'),
+                'title' => _b('Disable Submit button'),
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
                 'value' => 0,
