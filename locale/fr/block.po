@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
 "POT-Creation-Date: 2017-01-21 16:51+0100\n"
-"PO-Revision-Date: 2017-01-21 16:51+0100\n"
+"PO-Revision-Date: 2017-01-21 17:16+0100\n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc Desrousseaux\n"
 "Language: fr_FR\n"
@@ -90,7 +90,7 @@ msgstr "Module courant"
 
 #: template/block/search.phtml:48
 msgid "Please input term for search"
-msgstr "Merci de saisir "
+msgstr "Saisir vos termes de recherche"
 
 #: template/block/search.phtml:49
 msgid "Searching, please wait ..."

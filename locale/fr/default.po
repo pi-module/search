@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2017-01-21 16:44+0100\n"
-"PO-Revision-Date: 2017-01-21 16:44+0100\n"
+"POT-Creation-Date: 2017-01-21 17:14+0100\n"
+"PO-Revision-Date: 2017-01-21 17:15+0100\n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc Desrousseaux\n"
 "Language: fr_FR\n"
@@ -112,7 +112,6 @@ msgstr ""
 "les termes de recherche <strong>%s</strong>"
 
 #: template/front/search-result.phtml:63
-#, fuzzy
 msgid "All result &raquo;"
 msgstr "Tous les résultats &raquo;"
 
