@@ -1,12 +1,12 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
-    <h3><?php _e('List of top searched terms'); ?></h3>
+    <h3><?php _b('List of top searched terms'); ?></h3>
     <?php if ($config['save_log']) { ?>
         <table class="table table-striped table-bordered table-condensed">
             <tr>
-                <th><?php _e('ID'); ?></th>
-                <th><?php _e('Term'); ?></th>
-                <th><?php _e('Weight'); ?></th>
+                <th><?php _b('ID'); ?></th>
+                <th><?php _b('Term'); ?></th>
+                <th><?php _b('Weight'); ?></th>
             </tr>
             <?php foreach ($list as $dictionary) { ?>
                 <tr>
@@ -18,7 +18,7 @@
         </table>
     <?php } else { ?>
         <div class="alert alert-danger" role="alert">
-            <?php _e('Save log option for search module not active'); ?>
+            <?php _b('Save log option for search module not active'); ?>
         </div>
     <?php } ?>
 </div>

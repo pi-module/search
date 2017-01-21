@@ -1,40 +1,120 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2015-04-20 17:11+0100\n"
-"PO-Revision-Date: 2015-04-20 17:11+0100\n"
+"POT-Creation-Date: 2017-01-21 16:44+0100\n"
+"PO-Revision-Date: 2017-01-21 16:46+0100\n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc Desrousseaux\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
-"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ../..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-KeywordsList: _b\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: C:\\Users\\LAPTOP MARC\\Documents\\GitHub\\pi\\usr"
-"\\module\\search\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: C:\Users\LAPTOP
-#: MARC\Documents\GitHub\pi\usr\module\search/src/Block/Block.php:26
-#, fuzzy
-msgid "Global"
-msgstr "Globale"
-
-#: C:\Users\LAPTOP
-#: MARC\Documents\GitHub\pi\usr\module\search/src/Block/Block.php:27
-msgid "Current module"
-msgstr "Module courant"
-
-#: C:\Users\LAPTOP
-#: MARC\Documents\GitHub\pi\usr\module\search/template/block/search.phtml:4
+#: config/block.php:12 config/block.php:77 template/block/search.phtml:78
 msgid "Search"
 msgstr "Rechercher"
 
-#~ msgid "Search box."
-#~ msgstr "Boite de Recherche"
+#: config/block.php:13
+msgid "Search box."
+msgstr "Boite de Recherche"
+
+#: config/block.php:18
+msgid "Search type"
+msgstr "Type de recherche"
+
+#: config/block.php:23
+msgid "Normal"
+msgstr "Normale"
+
+#: config/block.php:24
+msgid "Ajax"
+msgstr "Ajax"
+
+#: config/block.php:31
+msgid "Target"
+msgstr "Target"
+
+#: config/block.php:36
+msgid "_self"
+msgstr "_self"
+
+#: config/block.php:37
+msgid "_blank"
+msgstr "_blank"
+
+#: config/block.php:44
+msgid "Module"
+msgstr "Module"
+
+#: config/block.php:45
+msgid "Module for search"
+msgstr "Modules dans lesquels effectuer la recherche"
+
+#: config/block.php:52
+msgid "Search on current module"
+msgstr "Chercher dans le module courant"
+
+#: config/block.php:53
+msgid "Show or hide option for search on current module"
+msgstr "Afficher ou cacher l'option pour rechercher dans le module courant"
+
+#: config/block.php:59
+msgid "Use block effects"
+msgstr "Utiliser les effets de bloc"
+
+#: config/block.php:60
+msgid "Use block effects or set custom effect on theme"
+msgstr "Utiliser les effets de bloc ou définir un effet custom dans le thème"
+
+#: config/block.php:66
+msgid "Disable Submit button"
+msgstr "Désactiver le bouton Soumettre"
+
+#: config/block.php:73
+msgid "Title field description"
+msgstr "Description du champ titre"
+
+#: src/Block/Block.php:33
+msgid "Global"
+msgstr "Globale"
+
+#: src/Block/Block.php:34
+msgid "Current module"
+msgstr "Module courant"
+
+#: template/admin/dictionary-index.phtml:3
+msgid "List of top searched terms"
+msgstr "Top termes recherchés"
+
+#: template/admin/dictionary-index.phtml:7
+msgid "ID"
+msgstr "ID"
+
+#: template/admin/dictionary-index.phtml:8
+msgid "Term"
+msgstr "Termes"
+
+#: template/admin/dictionary-index.phtml:9
+msgid "Weight"
+msgstr "Poids"
+
+#: template/admin/dictionary-index.phtml:21
+msgid "Save log option for search module not active"
+msgstr "L'enregistrement des termes recherchés n'est pas activé"
+
+#: template/block/search.phtml:48
+msgid "Please input term for search"
+msgstr "Merci de saisir "
+
+#: template/block/search.phtml:49
+msgid "Searching, please wait ..."
+msgstr "Recherche en cours ..."
 
 #~ msgid "Keywords"
 #~ msgstr "Mots-Clefs"
