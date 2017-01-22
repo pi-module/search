@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2017-01-21 16:51+0100\n"
-"PO-Revision-Date: 2017-01-21 17:16+0100\n"
+"POT-Creation-Date: 2017-01-22 11:04+0100\n"
+"PO-Revision-Date: 2017-01-22 11:04+0100\n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc Desrousseaux\n"
 "Language: fr_FR\n"
@@ -15,70 +15,6 @@ msgstr ""
 "X-Poedit-KeywordsList: _b\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
-
-#: config/block.php:12 config/block.php:77 template/block/search.phtml:78
-msgid "Search"
-msgstr "Rechercher"
-
-#: config/block.php:13
-msgid "Search box."
-msgstr "Boite de Recherche"
-
-#: config/block.php:18
-msgid "Search type"
-msgstr "Type de recherche"
-
-#: config/block.php:23
-msgid "Normal"
-msgstr "Normale"
-
-#: config/block.php:24
-msgid "Ajax"
-msgstr "Ajax"
-
-#: config/block.php:31
-msgid "Target"
-msgstr "Target"
-
-#: config/block.php:36
-msgid "_self"
-msgstr "_self"
-
-#: config/block.php:37
-msgid "_blank"
-msgstr "_blank"
-
-#: config/block.php:44
-msgid "Module"
-msgstr "Module"
-
-#: config/block.php:45
-msgid "Module for search"
-msgstr "Modules dans lesquels effectuer la recherche"
-
-#: config/block.php:52
-msgid "Search on current module"
-msgstr "Chercher dans le module courant"
-
-#: config/block.php:53
-msgid "Show or hide option for search on current module"
-msgstr "Afficher ou cacher l'option pour rechercher dans le module courant"
-
-#: config/block.php:59
-msgid "Use block effects"
-msgstr "Utiliser les effets de bloc"
-
-#: config/block.php:60
-msgid "Use block effects or set custom effect on theme"
-msgstr "Utiliser les effets de bloc ou définir un effet custom dans le thème"
-
-#: config/block.php:66
-msgid "Disable Submit button"
-msgstr "Désactiver le bouton Soumettre"
-
-#: config/block.php:73
-msgid "Title field description"
-msgstr "Description du champ titre"
 
 #: src/Block/Block.php:33
 msgid "Global"
@@ -95,6 +31,55 @@ msgstr "Saisir vos termes de recherche"
 #: template/block/search.phtml:49
 msgid "Searching, please wait ..."
 msgstr "Recherche en cours ..."
+
+#: template/block/search.phtml:78
+msgid "Search"
+msgstr "Rechercher"
+
+#~ msgid "Search box."
+#~ msgstr "Boite de Recherche"
+
+#~ msgid "Search type"
+#~ msgstr "Type de recherche"
+
+#~ msgid "Normal"
+#~ msgstr "Normale"
+
+#~ msgid "Ajax"
+#~ msgstr "Ajax"
+
+#~ msgid "Target"
+#~ msgstr "Target"
+
+#~ msgid "_self"
+#~ msgstr "_self"
+
+#~ msgid "_blank"
+#~ msgstr "_blank"
+
+#~ msgid "Module"
+#~ msgstr "Module"
+
+#~ msgid "Module for search"
+#~ msgstr "Modules dans lesquels effectuer la recherche"
+
+#~ msgid "Search on current module"
+#~ msgstr "Chercher dans le module courant"
+
+#~ msgid "Show or hide option for search on current module"
+#~ msgstr "Afficher ou cacher l'option pour rechercher dans le module courant"
+
+#~ msgid "Use block effects"
+#~ msgstr "Utiliser les effets de bloc"
+
+#~ msgid "Use block effects or set custom effect on theme"
+#~ msgstr "Utiliser les effets de bloc ou définir un effet custom dans le thème"
+
+#~ msgid "Disable Submit button"
+#~ msgstr "Désactiver le bouton Soumettre"
+
+#~ msgid "Title field description"
+#~ msgstr "Description du champ titre"
 
 #~ msgid "List of top searched terms"
 #~ msgstr "Top termes recherchés"

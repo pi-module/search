@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2017-01-21 16:52+0100\n"
-"PO-Revision-Date: 2017-01-21 16:52+0100\n"
+"POT-Creation-Date: 2017-01-22 11:04+0100\n"
+"PO-Revision-Date: 2017-01-22 11:06+0100\n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc Desrousseaux\n"
 "Language: fr_FR\n"
@@ -15,6 +15,70 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: config/block.php:12 config/block.php:77 config/module.php:12
+msgid "Search"
+msgstr "Rechercher"
+
+#: config/block.php:13
+msgid "Search box."
+msgstr "Block de recherche."
+
+#: config/block.php:18
+msgid "Search type"
+msgstr "Type de recherche"
+
+#: config/block.php:23
+msgid "Normal"
+msgstr "Normal"
+
+#: config/block.php:24
+msgid "Ajax"
+msgstr "Ajax"
+
+#: config/block.php:31
+msgid "Target"
+msgstr "Target"
+
+#: config/block.php:36
+msgid "_self"
+msgstr "self"
+
+#: config/block.php:37
+msgid "_blank"
+msgstr "blank"
+
+#: config/block.php:44
+msgid "Module"
+msgstr "Module"
+
+#: config/block.php:45
+msgid "Module for search"
+msgstr "Module pour la recherche"
+
+#: config/block.php:52
+msgid "Search on current module"
+msgstr "Recherche dans le module courant"
+
+#: config/block.php:53
+msgid "Show or hide option for search on current module"
+msgstr "Afficher ou cache l'option de recherche dans le module courant"
+
+#: config/block.php:59
+msgid "Use block effects"
+msgstr "Utiliser les effets Block"
+
+#: config/block.php:60
+msgid "Use block effects or set custom effect on theme"
+msgstr "Utiliser les effets pour le bloc ou définir un effet custom dans le thème"
+
+#: config/block.php:66
+msgid "Disable Submit button"
+msgstr "Désactiver le bouton Soumette"
+
+#: config/block.php:73
+msgid "Title field description"
+msgstr "Description pour le champ Titre"
 
 #: config/config.php:12
 msgid "Leading search result limit"
@@ -132,10 +196,6 @@ msgstr "Module de recherche"
 msgid "Only specified modules are allowed to search, separated by \",\"."
 msgstr "Seuls les modules spécifiés sont autorisés à rechercher, séparés par \",\"."
 
-#: config/module.php:12
-msgid "Search"
-msgstr "Rechercher"
-
 #: config/module.php:13
 msgid "Search service applications."
 msgstr "Module Moteur de Recherche"
@@ -163,39 +223,6 @@ msgstr "Poids"
 #: template/admin/dictionary-index.phtml:21
 msgid "Save log option for search module not active"
 msgstr "L'enregistrement des termes recherchés n'a pas été activé"
-
-#~ msgid "Search box."
-#~ msgstr "Block de recherche."
-
-#~ msgid "Search type"
-#~ msgstr "Type de recherche"
-
-#~ msgid "Normal"
-#~ msgstr "Normal"
-
-#~ msgid "Ajax"
-#~ msgstr "Ajax"
-
-#~ msgid "Target"
-#~ msgstr "Target"
-
-#~ msgid "_self"
-#~ msgstr "self"
-
-#~ msgid "_blank"
-#~ msgstr "blank"
-
-#~ msgid "Module"
-#~ msgstr "Module"
-
-#~ msgid "Module for search"
-#~ msgstr "Module pour la recherche"
-
-#~ msgid "Search on current module"
-#~ msgstr "Recherche dans le module courant"
-
-#~ msgid "Disable Submit button"
-#~ msgstr "Désactiver le bouton Soumette"
 
 #~ msgid "Log search terms"
 #~ msgstr "Enregistrer les termes recherchés"
