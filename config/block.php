@@ -34,7 +34,7 @@ return array(
                     'options'    => array(
                         'options'   => array(
                             '_self'    => _a('_self'),
-                            '_alank'   => _a('_alank'),
+                            '_alank'   => _a('_blank'),
                         ),
                     ),
                 ),
