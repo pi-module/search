@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
 "POT-Creation-Date: 2017-01-22 11:06+0100\n"
-"PO-Revision-Date: 2017-01-22 11:06+0100\n"
+"PO-Revision-Date: 2017-02-02 23:24+0100\n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc Desrousseaux\n"
 "Language: fr_FR\n"
@@ -19,14 +19,16 @@ msgstr ""
 #: src/Controller/Front/IndexController.php:71
 #: template/front/search-result.phtml:14
 msgid "Submission flood detected, please wait for a while."
-msgstr "Un trop grand nombre de recherches détecté, merci d'attendre un peu"
+msgstr ""
+"Détection de requêtes identiques lancées simultanément, merci d'attendre un "
+"peu"
 
 #: src/Controller/Front/IndexController.php:87
 #: template/front/search-module-result.phtml:8
 #: template/front/search-result.phtml:27
 #, php-format
 msgid "Search result of %s on %s"
-msgstr "%s résultats dans %s"
+msgstr "Résultat de la recherche pour %s dans %s"
 
 #: src/Controller/Front/IndexController.php:107
 msgid "See more results"
@@ -89,7 +91,7 @@ msgstr "Recherche Google"
 #: template/front/search-module-result.phtml:10
 #: template/front/search-result.phtml:29
 msgid "Search result"
-msgstr "Résultant de recherche"
+msgstr "Résultat de recherche"
 
 #: template/front/search-module-result.phtml:48
 #: template/front/search-result.phtml:32
@@ -108,8 +110,8 @@ msgid ""
 "On all modules we found about <strong>%d</strong> result on search of "
 "<strong>%s</strong>"
 msgstr ""
-"Dans tous les modules, nous avons trouvés <strong>%d</strong> résultats pour "
-"les termes de recherche <strong>%s</strong>"
+"Dans tous les modules, nous avons trouvé <strong>%d</strong> résultats pour "
+"le(s) terme(s) de recherche <strong>%s</strong>"
 
 #: template/front/search-result.phtml:63
 msgid "All result &raquo;"
