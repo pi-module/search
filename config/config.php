@@ -45,6 +45,20 @@ $config = array(
         'value'         => 0
     ),
 
+    'module_link' => array(
+        'title'         => _t('Module open link type'),
+        'edit'          => array(
+            'type'          => 'select',
+            'options'    => array(
+                'options'   => array(
+                    'search'    => _a('Open more result on search'),
+                    'module'    => _a('Open more result on module'),
+                ),
+            ),
+        ),
+        'value'         => 'search',
+    ),
+
     'search_interval' => array(
         'title'         => _t('Search interval limit'),
         'description'   => _t('Limit for search time interval.'),

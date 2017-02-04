@@ -55,12 +55,12 @@ return array(
                 'filter' => 'number_int',
                 'value' => 1,
             ),
-            'block-effect' => array(
-                'title' => _a('Use block effects'),
-                'description' => _a('Use block effects or set custom effect on theme'),
-                'edit' => 'checkbox',
-                'filter' => 'number_int',
-                'value' => 1,
+            'descriptiontitle' => array(
+                'title' => _a('Title field description'),
+                'description' => '',
+                'edit' => 'text',
+                'filter' => 'string',
+                'value' => _a('Search'),
             ),
             'disable_submit_atn' => array(
                 'title' => _a('Disable Submit button'),
@@ -68,13 +68,12 @@ return array(
                 'filter' => 'number_int',
                 'value' => 0,
             ),
-
-            'descriptiontitle' => array(
-                'title' => _a('Title field description'),
-                'description' => '',
-                'edit' => 'text',
-                'filter' => 'string',
-                'value' => _a('Search'),
+            'block-effect' => array(
+                'title' => _a('Use block effects'),
+                'description' => _a('Use block effects or set custom effect on theme'),
+                'edit' => 'checkbox',
+                'filter' => 'number_int',
+                'value' => 1,
             ),
         )
     ),

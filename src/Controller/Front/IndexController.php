@@ -105,7 +105,7 @@ class IndexController extends ActionController
                             $list[] = array(
                                 'class' => ' class="text-right"',
                                 'title' => __('See more results'),
-                                'url' => $modules[$name]['url'],
+                                'url' => Pi::api('api', 'search')->moreLink($query, $name, $modules[$name]['url']),
                                 'icon' => '',
                                 'image' => '',
                             );

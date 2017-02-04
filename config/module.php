@@ -11,7 +11,7 @@ return array(
     'meta'  => array(
         'title'         => _a('Search'),
         'description'   => _a('Search service applications.'),
-        'version'       => '1.2.3',
+        'version'       => '1.2.4',
         'license'       => 'New BSD',
         'icon'          => 'fa-search',
     ),

@@ -20,6 +20,7 @@ use Pi\View\Resolver\ModuleTemplate as ModuleTemplateResolver;
  * Pi::api('api', 'search')->parseQuery($query);
  * Pi::api('api', 'search')->localizeQuery($term);
  * Pi::api('api', 'search')->template($module);
+ * Pi::api('api', 'search')->moreLink($query, $module, $url);
  */
 
 class Api extends AbstractApi
@@ -98,5 +99,53 @@ class Api extends AbstractApi
     public function template($module)
     {
         return sprintf('module/%s:front/search-result', $module);
+    }
+
+    public function moreLink($query, $module, $url)
+    {
+        // Get config
+        $config = Pi::service("registry")->config->read($this->getModule());
+        // Check
+        if ($config['module_link'] == 'module') {
+            switch ($module) {
+                case 'shop':
+                    $url = Pi::url(Pi::service('url')->assemble('shop', array(
+                        'module' => 'shop',
+                        'controller' => 'index',
+                        'action' => 'index',
+                        'slug' => sprintf('#!/search?title=%s', $query),
+                    )));
+                    break;
+
+                case 'video':
+                    $url = Pi::url(Pi::service('url')->assemble('video', array(
+                        'module' => 'video',
+                        'controller' => 'index',
+                        'action' => 'index',
+                        'slug' => sprintf('#!/search?title=%s', $query),
+                    )));
+                    break;
+
+                /* case 'event':
+                    $url = Pi::url(Pi::service('url')->assemble('event', array(
+                        'module' => 'event',
+                        'controller' => 'index',
+                        'action' => 'index',
+                        'slug' => sprintf('#!/search?title=%s', $query),
+                    )));
+                    break; */
+
+                /* case 'guide':
+                    $url = Pi::url(Pi::service('url')->assemble('guide', array(
+                        'module' => 'guide',
+                        'controller' => 'index',
+                        'action' => 'index',
+                        'slug' => sprintf('#!/search?title=%s', $query),
+                    )));
+                    break; */
+            }
+        }
+
+        return $url;
     }
 }
