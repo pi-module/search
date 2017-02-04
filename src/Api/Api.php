@@ -19,6 +19,7 @@ use Pi\View\Resolver\ModuleTemplate as ModuleTemplateResolver;
 /*
  * Pi::api('api', 'search')->parseQuery($query);
  * Pi::api('api', 'search')->localizeQuery($term);
+ * Pi::api('api', 'search')->parseStringQuery($query);
  * Pi::api('api', 'search')->template($module);
  * Pi::api('api', 'search')->moreLink($query, $module, $url);
  */
@@ -70,11 +71,11 @@ class Api extends AbstractApi
     }
 
     /**
-     * Parse localization search term from query string
+     * Parse localize search terms
      *
      * @param string $query
      *
-     * @return string
+     * @return array
      */
     public function localizeQuery($query)
     {
@@ -96,13 +97,47 @@ class Api extends AbstractApi
         return $query;
     }
 
+    /**
+     * Parse search terms and security from query string and return string query for module usage
+     *
+     * @param string $query
+     *
+     * @return string
+     */
+    public function parseStringQuery($query)
+    {
+        // Clean query
+        $query = $this->parseQuery($query);
+        $query = implode(' ', $query);
+        $query = rtrim($query, ' ');
+        return $query;
+    }
+
+    /**
+     * Set custom template path
+     *
+     * @param string $module
+     *
+     * @return string
+     */
     public function template($module)
     {
         return sprintf('module/%s:front/search-result', $module);
     }
 
+    /**
+     * Set more link url
+     *
+     * @param string $query
+     * @param string $module
+     * @param string $url
+     *
+     * @return string
+     */
     public function moreLink($query, $module, $url)
     {
+        // Set clean query
+        $query = $this->parseStringQuery($query);
         // Get config
         $config = Pi::service("registry")->config->read($this->getModule());
         // Check
