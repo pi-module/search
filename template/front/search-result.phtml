@@ -21,19 +21,21 @@ $this->headMeta('noindex', 'robots');
         $total = $data->getTotal();
         if ($total >= 1) {
             ?>
-            <div class="clearfix">
-                <div class="page-header clearfix">
+            <div class="clearfix panel panel-default">
+                <div class="panel-heading clearfix">
                     <?php if (isset($query) && !empty($query)) { ?>
-                        <h2 class="col-md-10"><?php echo sprintf(__('Search result of %s on %s'), _escape($query), _escape($modules[$name]['title'])); ?></h2>
+                        <h2 class="col-md-10 panel-title"><?php echo sprintf(__('Search result of %s on %s'), _escape($query), _escape($modules[$name]['title'])); ?></h2>
                     <?php } else { ?>
-                        <h2 class="col-md-10"><?php _e('Search result'); ?></h2>
+                        <h2 class="col-md-10 panel-title"><?php _e('Search result'); ?></h2>
                     <?php } ?>
-                    <div class="col-md-2 text-right text-muted small">
-                        <?php echo sprintf(__('%d found.'), $total); ?>
+                    <div class="col-md-2 text-right">
+                        <span class="label label-default">
+                            <?php echo sprintf(__('%d found.'), $total); ?>
+                        </span>
                     </div>
                 </div>
                 <?php foreach ($data as $item) { ?>
-                    <div class="search-result-item clearfix">
+                    <div class="search-result-item clearfix panel-body">
                         <?php if (!empty($item['image'])) { ?>
                             <div class="col-md-2">
                                 <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
@@ -57,13 +59,13 @@ $this->headMeta('noindex', 'robots');
                         </div>
                     </div>
                 <?php } ?>
-                <p class="clearfix col-md-12">
-                    <?php if ($total > Pi::config('leading_limit', 'search')) { ?>
+                <?php if ($total > Pi::config('leading_limit', 'search')) { ?>
+                    <div class="clearfix col-md-12 text-right panel-footer">
                         <a href="<?php echo $modules[$name]['url']; ?>">
-                            <?php echo __('All result &raquo;'); ?>
+                            <span class="label label-success"><?php echo __('All result &raquo;'); ?></span>
                         </a>
-                    <?php } ?>
-                </p>
+                    </div>
+                <?php } ?>
             </div>
         <?php }
     } ?>
