@@ -25,7 +25,7 @@ return array(
                         ),
                     ),
                 ),
-                'value'         => 'normal',
+                'value'         => 'ajax',
             ),
             'target' => array(
                 'title'         => _a('Target'),
@@ -53,7 +53,7 @@ return array(
                 'description' => _a('Show or hide option for search on current module'),
                 'edit' => 'checkbox',
                 'filter' => 'number_int',
-                'value' => 1,
+                'value' => 0,
             ),
             'descriptiontitle' => array(
                 'title' => _a('Title field description'),
