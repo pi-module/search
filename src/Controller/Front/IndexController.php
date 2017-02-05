@@ -472,6 +472,13 @@ class IndexController extends ActionController
             );
         }
 
+        if($this->config('bing_enable')){
+            $list['bing'] = array(
+                'title' => __('Bing'),
+                'url' => $bingQuery,
+            );
+        }
+
         if($this->config('baidu_enable')){
             $list['baidu'] = array(
                 'title' => __('Baidu'),

@@ -101,10 +101,10 @@ $config = array(
     ),
 
     'google_enable' => array(
-        'title' => _a('Display Google link'),
-        'edit' => 'checkbox',
-        'filter' => 'number_int',
-        'value' => 1,
+        'title'         => _a('Display Google link'),
+        'edit'          => 'checkbox',
+        'filter'        => 'number_int',
+        'value'         => 1,
     ),
 
     'google_code'       => array(
@@ -113,11 +113,18 @@ $config = array(
         'value'         => '012766098119240378914:a6l0fuirq4a',
     ),
 
+    'bing_enable' => array(
+        'title'         => _a('Display bing link'),
+        'edit'          => 'checkbox',
+        'filter'        => 'number_int',
+        'value'         => 1,
+    ),
+
     'baidu_enable' => array(
-        'title' => _a('Display Baidu link'),
-        'edit' => 'checkbox',
-        'filter' => 'number_int',
-        'value' => 0,
+        'title'         => _a('Display Baidu link'),
+        'edit'          => 'checkbox',
+        'filter'        => 'number_int',
+        'value'         => 0,
     ),
 
     'baidu_code'        => array(
