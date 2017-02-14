@@ -26,7 +26,7 @@ $config = array(
         'title'         => _t('Separate query'),
         'description'   => _t('Separate input keyword by space'),
         'edit'          => 'checkbox',
-        'value'         => 0,
+        'value'         => 1,
         'filter'        => 'int',
     ),
 
@@ -42,7 +42,7 @@ $config = array(
         'description'   => _t('Localize query by selected language on website'),
         'edit'          => 'checkbox',
         'filter'        => 'number_int',
-        'value'         => 0
+        'value'         => 1
     ),
 
     'module_link' => array(
