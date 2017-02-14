@@ -327,10 +327,23 @@ class IndexController extends ActionController
         $moduleList = Pi::registry('modulelist')->read();
         $modules = (array)$in;
         $result = array();
+        $condition = array();
+        $columns = array();
 
         // Save search log
         if ($this->config('save_log')) {
             Pi::api('log', 'search')->saveLog($terms);
+        }
+
+        // Set custom fields
+        if (!empty($this->config('search_field'))) {
+            $fields = explode(',', $this->config('search_field'));
+            foreach ($fields as $field) {
+                $field = strtolower($field);
+                if(preg_match("/^[a-z0-9_]+$/", $field) == 1) {
+                    $columns[] = $field;
+                }
+            }
         }
 
         if ($this->config('search_in')) {
@@ -353,7 +366,7 @@ class IndexController extends ActionController
                 continue;
             }
             $searchHandler = new $callback($name);
-            $result[$name] = $searchHandler->query($terms, $limit, $offset);
+            $result[$name] = $searchHandler->query($terms, $limit, $offset, $condition, $columns);
         }
 
         if (is_scalar($in)) {
