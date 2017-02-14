@@ -21,8 +21,8 @@ $this->headMeta('noindex', 'robots');
         $total = $data->getTotal();
         if ($total >= 1) {
             ?>
-            <div class="clearfix panel panel-default">
-                <div class="panel-heading clearfix">
+            <div class="clearfix">
+                <div class="clearfix page-header">
                     <?php if (isset($query) && !empty($query)) { ?>
                         <h2 class="col-md-10 panel-title"><?php echo sprintf(__('Search result of %s on %s'), _escape($query), _escape($modules[$name]['title'])); ?></h2>
                     <?php } else { ?>
@@ -34,33 +34,38 @@ $this->headMeta('noindex', 'robots');
                         </span>
                     </div>
                 </div>
+                <?php $template = $this->template('search-result', 'front', $name); ?>
                 <?php foreach ($data as $item) { ?>
-                    <div class="search-result-item clearfix panel-body">
-                        <?php if (!empty($item['image'])) { ?>
-                            <div class="col-md-2">
-                                <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
-                                    <img class="img-responsive img-rounded" src="<?php echo _escape($item['image']); ?>"
-                                         alt="<?php echo _escape($item['title']); ?>">
-                                </a>
+                    <?php if(!empty($template)) { ?>
+                        <?php include $template; ?>
+                    <?php } else { ?>
+                        <div class="search-result-item clearfix">
+                            <?php if (!empty($item['image'])) { ?>
+                                <div class="col-md-2">
+                                    <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
+                                        <img class="img-responsive img-rounded" src="<?php echo _escape($item['image']); ?>"
+                                             alt="<?php echo _escape($item['title']); ?>">
+                                    </a>
+                                </div>
+                            <?php } ?>
+                            <div class="<?php if (!empty($item['image'])) { ?>col-md-10<?php } else { ?>col-md-12<?php } ?>">
+                                <h3>
+                                    <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
+                                        <?php echo _escape($item['title']); ?>
+                                    </a>
+                                </h3>
+                                <p class="clearfix">
+                                    <?php echo _escape($item['content']); ?>
+                                </p>
+                                <p class="text-muted">
+                                    <?php echo _date($item['time']); ?>
+                                </p>
                             </div>
-                        <?php } ?>
-                        <div class="<?php if (!empty($item['image'])) { ?>col-md-10<?php } else { ?>col-md-12<?php } ?>">
-                            <h3>
-                                <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
-                                    <?php echo _escape($item['title']); ?>
-                                </a>
-                            </h3>
-                            <p class="clearfix">
-                                <?php echo _escape($item['content']); ?>
-                            </p>
-                            <p class="text-muted">
-                                <?php echo _date($item['time']); ?>
-                            </p>
                         </div>
-                    </div>
+                    <?php } ?>
                 <?php } ?>
                 <?php if ($total > Pi::config('leading_limit', 'search')) { ?>
-                    <div class="clearfix col-md-12 text-right panel-footer">
+                    <div class="search-all-result clearfix col-md-12 text-right">
                         <a href="<?php echo $modules[$name]['url']; ?>">
                             <span class="label label-success"><?php echo __('All result &raquo;'); ?></span>
                         </a>

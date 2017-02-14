@@ -11,6 +11,17 @@ $this->headMeta('noindex', 'robots');
         <?php } ?>
     </div>
     <?php include $this->template('./search-form.phtml'); ?>
+
+    <div class="well well-sm">
+        <?php if (0 < $total) {
+            echo sprintf(__('On <strong>%s</strong> module we found about <strong>%d</strong> result on search of <strong>%s</strong>'), _escape($modules[$searchModule]['title']), $total, _escape($query));
+        } elseif (!empty($flood)) {
+            _e('Submission flood detected, please wait for a while.');
+        } else {
+            _e('No result found.');
+        } ?>
+    </div>
+
     <div class="clearfix">
         <?php if ($total >= 1) { ?>
             <?php $template = $this->template('search-result', 'front', $searchModule); ?>
@@ -47,10 +58,6 @@ $this->headMeta('noindex', 'robots');
                 <p class="pull-right text-muted">
                     <?php echo sprintf(__('%d found.'), $total); ?>
                 </p>
-            </div>
-        <?php } else { ?>
-            <div class="well well-sm">
-                <?php _e('No result found.'); ?>
             </div>
         <?php } ?>
         <?php if ($paginator) {
