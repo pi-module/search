@@ -36,6 +36,8 @@ class Block
             }
         }
 
+        $options['delay'] = !empty(intval($options['delay'])) ? intval($options['delay']) : 1000;
+
         return array(
             'options'   => $options,
             'action'    => $formAction,

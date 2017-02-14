@@ -68,6 +68,13 @@ return array(
                 'filter' => 'number_int',
                 'value' => 0,
             ),
+            'delay' => array(
+                'title' => _a('Ajax search delay'),
+                'description' => _a('Set delay by milliseconds'),
+                'edit' => 'text',
+                'filter' => 'number_int',
+                'value' => 1000,
+            ),
             'block-effect' => array(
                 'title' => _a('Use block effects'),
                 'description' => _a('Use block effects or set custom effect on theme'),

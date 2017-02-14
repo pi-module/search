@@ -25,9 +25,9 @@
     }
     $("#search-keyword").keyup(function() {
         clearTimeout(timer);
-        timer = setTimeout(search, 500);
+        timer = setTimeout(search, %s);
     }).blur(function () {
-        $(".search-results").fadeOut(500);
+        $(".search-results").fadeOut(%s);
     }).focus(function () {
         var keyword = $("#search-keyword").val();
         $(".search-info-text").remove();
@@ -43,6 +43,8 @@ EOT;
                 $script,
                 $block['length'],
                 $block['ajax'],
+                $block['options']['delay'],
+                $block['options']['delay'],
                 _b('Please input term for search'),
                 _b('Searching, please wait ...')
             );
