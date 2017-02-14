@@ -54,16 +54,17 @@ class Api extends AbstractApi
             $terms = array_merge($terms, explode(' ', $string));
 
             array_walk($terms, function ($term) use (&$result, $length) {
+                $term = $this->localizeQuery($term);
                 $term = _strip($term);
                 if (!$length || strlen($term) >= $length) {
-                    $result[] = $this->localizeQuery($term);
+                    $result[] = $term;
                 }
             });
             $result = array_filter(array_unique($result));
         } else {
             if (!$length || strlen($query) >= $length) {
-                $query = _strip($query);
-                $result[] = $this->localizeQuery($query);
+                $query = $this->localizeQuery($query);
+                $result[] = _strip($query);
             }
         }
         // return result as array
@@ -89,6 +90,13 @@ class Api extends AbstractApi
                     $query = str_replace(
                         array('ي', 'ك', '٤', '٥', '٦', 'ة'),
                         array('ی', 'ک', '۴', '۵', '۶', 'ه'),
+                        $query);
+                    break;
+
+                case 'fr':
+                    $query = str_replace(
+                        array("d'"),
+                        array(''),
                         $query);
                     break;
             }
