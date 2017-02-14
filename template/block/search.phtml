@@ -96,7 +96,6 @@ EOT;
                         <?php if ($block['options']['module'] != 'all') { ?>
                             <input type="hidden" name="m" value="<?php echo $block['options']['module']; ?>">
                         <?php } ?>
-
                         <?php if (!empty($block['options']['disable_submit_btn']) && $block['options']['disable_submit_btn']) { ?>
                             <div class="input-group-addon">
                                 <i class="fa fa-search"></i>
@@ -112,12 +111,11 @@ EOT;
         </form>
         <?php if (!empty($block['list']) && $block['options']['block-effect']) {
             $script = <<<'EOT'
-    $('#js-search-menu').on('click', 'a', function(e) {
+$('#js-search-menu').on('click', 'a', function(e) {
     var $this = $(this);
     var val = $this.data('value');
     var form = $this.parents('form');
     var m = form.find('[name=m]');
-
     e.preventDefault();
     m.val(val);
     form[0].submit();
