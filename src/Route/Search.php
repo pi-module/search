@@ -111,7 +111,9 @@ class Search extends Standard
             $url = ltrim($url, $this->paramDelimiter);
         }
 
-        return $url;
+        $finalUrl = rtrim($url, '/');
+
+        return $finalUrl;
     }
 
     /**
@@ -171,7 +173,9 @@ class Search extends Standard
             $url .= '?' . http_build_query($query);
         }
 
-        return $url;
+        $finalUrl = rtrim($url, '/');
+
+        return $finalUrl;
     }
 
 }
