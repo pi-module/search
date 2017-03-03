@@ -26,7 +26,7 @@ $this->headMeta('noindex', 'robots');
         <?php if ($total >= 1) { ?>
             <?php $template = $this->template('search-result', 'front', $searchModule); ?>
             <?php foreach ($result as $item) { ?>
-                <?php if(!empty($template)) { ?>
+                <?php if(!empty($template) && $config['use_custom_template']) { ?>
                     <?php include $template; ?>
                 <?php } else { ?>
                     <div class="search-result-item clearfix">

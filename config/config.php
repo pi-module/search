@@ -64,6 +64,14 @@ $config = array(
             'value'         => 0,
         ),
 
+        'use_custom_template' => array(
+            'title'         => _t('Use custom template'),
+            'description'   => _t('if Check it, on result system use custom template from modules'),
+            'edit'          => 'checkbox',
+            'filter'        => 'number_int',
+            'value'         => 0,
+        ),
+
         'search_interval' => array(
             'title'         => _t('Search interval limit'),
             'description'   => _t('Limit for search time interval.'),

@@ -152,6 +152,7 @@ class IndexController extends ActionController
     {
         $query = $this->params('q');
         $modules = $this->getModules($query);
+        $config = Pi::service('registry')->config->read('search');
 
         if ($query) {
             $total = 0;
@@ -189,7 +190,8 @@ class IndexController extends ActionController
         $this->view()->assign(array(
             'modules' => $modules,
             'service' => $this->getService(),
-            'searchModule' => ''
+            'searchModule' => '',
+            'config' => $config,
         ));
     }
 
@@ -205,6 +207,7 @@ class IndexController extends ActionController
         $query = $this->params('q');
         $page = $this->params('page') ?: 1;
         $module = $module ?: $this->params('m');
+        $config = Pi::service('registry')->config->read('search');
 
         $modules = $this->getModules($query);
         if (!isset($modules[$module])) {
@@ -261,8 +264,9 @@ class IndexController extends ActionController
         }
         $this->view()->assign(array(
             'modules' => $modules,
-            'searchModule' => $module,
             'service' => $this->getService(),
+            'searchModule' => $module,
+            'config' => $config,
         ));
     }
 

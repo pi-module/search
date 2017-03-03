@@ -36,7 +36,7 @@ $this->headMeta('noindex', 'robots');
                 </div>
                 <?php $template = $this->template('search-result', 'front', $name); ?>
                 <?php foreach ($data as $item) { ?>
-                    <?php if(!empty($template)) { ?>
+                    <?php if(!empty($template) && $config['use_custom_template']) { ?>
                         <?php include $template; ?>
                     <?php } else { ?>
                         <div class="search-result-item clearfix">
