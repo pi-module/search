@@ -152,9 +152,10 @@ class Api extends AbstractApi
         if ($config['module_link'] == 'module') {
             switch ($module) {
                 case 'shop':
+                    $shopConfig = Pi::service('registry')->config->read('shop');
                     $url = Pi::url(Pi::service('url')->assemble('shop', array(
                         'module' => 'shop',
-                        'controller' => 'index',
+                        'controller' => ($shopConfig['homepage_type'] == 'brand') ? 'result' : 'index',
                         'action' => 'index',
                         'slug' => sprintf('#!/search?title=%s', $query),
                     )));
