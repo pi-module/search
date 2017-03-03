@@ -5,7 +5,7 @@ $this->headMeta('noindex', 'robots');
 <div class="clearfix">
     <div class="col-md-8 col-md-offset-2 col-xs-12 text-center">
         <?php if (isset($query) && !empty($query)) { ?>
-            <h1><?php echo sprintf(__('Search result of %s on %s'), _escape($query), _escape($modules[$searchModule]['title'])); ?></h1>
+            <h1><?php echo sprintf(__('Search result of %s on %s'), $this->escape($query), $this->escape($modules[$searchModule]['title'])); ?></h1>
         <?php } else { ?>
             <h1><?php _e('Search result'); ?></h1>
         <?php } ?>
@@ -14,7 +14,7 @@ $this->headMeta('noindex', 'robots');
 
     <div class="well well-sm">
         <?php if (0 < $total) {
-            echo sprintf(__('On <strong>%s</strong> module we found about <strong>%d</strong> result on search of <strong>%s</strong>'), _escape($modules[$searchModule]['title']), $total, _escape($query));
+            echo sprintf(__('On <strong>%s</strong> module we found about <strong>%d</strong> result on search of <strong>%s</strong>'), $this->escape($modules[$searchModule]['title']), $total, $this->escape($query));
         } elseif (!empty($flood)) {
             _e('Submission flood detected, please wait for a while.');
         } else {
@@ -33,19 +33,19 @@ $this->headMeta('noindex', 'robots');
                         <?php if (!empty($item['image'])) { ?>
                             <div class="col-md-2">
                                 <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
-                                    <img class="img-responsive img-rounded" src="<?php echo _escape($item['image']); ?>"
-                                         alt="<?php echo _escape($item['title']); ?>">
+                                    <img class="img-responsive img-rounded" src="<?php echo $this->escape($item['image']); ?>"
+                                         alt="<?php echo $this->escape($item['title']); ?>">
                                 </a>
                             </div>
                         <?php } ?>
                         <div class="<?php if (!empty($item['image'])) { ?>col-md-10<?php } else { ?>col-md-12<?php } ?>">
                             <h3>
                                 <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
-                                    <?php echo _escape($item['title']); ?>
+                                    <?php echo $this->escape($item['title']); ?>
                                 </a>
                             </h3>
                             <p class="clearfix">
-                                <?php echo _escape($item['content']); ?>
+                                <?php echo $this->escape($item['content']); ?>
                             </p>
                             <p class="text-muted">
                                 <?php echo _date($item['time']); ?>

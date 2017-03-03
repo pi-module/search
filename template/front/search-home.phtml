@@ -28,7 +28,7 @@ $this->footScript()->appendFile($this->assetModule('front/search-tabs.js'));
                             '<li><a data-name="%s" href="#" class="js-search-module%s">%s</a></li>',
                             $name,
                             $name == $searchModule ? ' active' : '',
-                            _escape($data['title'])
+                            $this->escape($data['title'])
                         );
                     }
                     ?>
@@ -36,7 +36,7 @@ $this->footScript()->appendFile($this->assetModule('front/search-tabs.js'));
             </div>
             <div class="input-group">
                 <input type="text" name="q" class="form-control"
-                       value="<?php echo !empty($query) ? _escape($query) : ''; ?>"
+                       value="<?php echo !empty($query) ? $this->escape($query) : ''; ?>"
                        placeholder="<?php _e('Keywords'); ?>">
                 <div class="input-group-btn">
                     <button type="submit" class="btn btn-primary">
@@ -50,7 +50,7 @@ $this->footScript()->appendFile($this->assetModule('front/search-tabs.js'));
                         echo sprintf(
                             '<li><a data-name="%s" href="#" class="js-search-service">%s</a></li>',
                             $name,
-                            _escape($data['title'])
+                            $this->escape($data['title'])
                         );
                     } ?>
                 </ul>

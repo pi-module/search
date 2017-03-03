@@ -6,7 +6,7 @@ $mode = 'resultonly'; // 'resultonly', 'custom'
 <?php if ('default' == $mode) { ?>
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h1 class="panel-title"><?php echo sprintf(__('Google search for %s'), _escape(Pi::config('sitename'))); ?></h1>
+            <h1 class="panel-title"><?php echo sprintf(__('Google search for %s'), $this->escape(Pi::config('sitename'))); ?></h1>
         </div>
         <div class="panel-body">
             <script>
@@ -41,13 +41,13 @@ $mode = 'resultonly'; // 'resultonly', 'custom'
          <!-- You can define logo in theme -->
         <a class="search-logo" href="<?php echo $this->url('home'); ?>"
            title="<?php _e('Go to home page'); ?>" style="margin-top: 5px;">
-            <?php echo _escape(Pi::config('sitename')); ?>
+            <?php echo $this->escape(Pi::config('sitename')); ?>
         </a>
     </div>
     <div class="col-md-6">
         <form id="pi-gcse-search-box">
             <div class="input-group">
-                <input type="text" name="q" value="<?php echo _escape($google['q']); ?>" class="form-control">
+                <input type="text" name="q" value="<?php echo $this->escape($google['q']); ?>" class="form-control">
                 <div class="input-group-btn">
                     <button type="submit" class="btn btn-primary">
                         <span class="fa fa-search"></span> 
@@ -86,7 +86,7 @@ $mode = 'resultonly'; // 'resultonly', 'custom'
 <?php } else { ?>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><?php echo sprintf(__('Google search for %s'), _escape(Pi::config('sitename'))); ?></h3>
+        <h3 class="panel-title"><?php echo sprintf(__('Google search for %s'), $this->escape(Pi::config('sitename'))); ?></h3>
     </div>
     <div class="panel-body" id="cse" style='width: 100%;'><?php _e('Loading ...'); ?></div>
 

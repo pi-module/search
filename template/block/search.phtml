@@ -85,8 +85,8 @@ EOT;
                         <ul class="dropdown-menu pull-right" id="js-search-menu">
                             <?php foreach ($block['list'] as $name => $label) { ?>
                                 <li>
-                                    <a href="#" data-value="<?php echo _escape($name); ?>">
-                                        <?php echo _escape($label); ?>
+                                    <a href="#" data-value="<?php echo $this->escape($name); ?>">
+                                        <?php echo $this->escape($label); ?>
                                     </a>
                                 </li>
                             <?php } ?>
