@@ -74,7 +74,7 @@ $config = array(
         'search_interval_anonymous' => array(
             'title'         => _t('Anonymous interval limit'),
             'description'   => _t('Limit for anonymous search time interval.'),
-            'value'         => 3,
+            'value'         => 0,
             'filter'        => 'int',
         ),
 
