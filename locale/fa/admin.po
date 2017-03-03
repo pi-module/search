@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pi-search\n"
-"POT-Creation-Date: 2017-02-28 12:15+0330\n"
-"PO-Revision-Date: 2017-02-28 12:15+0330\n"
+"POT-Creation-Date: 2017-03-03 11:47+0330\n"
+"PO-Revision-Date: 2017-03-03 11:53+0330\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 1.8.12\n"
 "X-Poedit-KeywordsList: _a;_t\n"
 "X-Poedit-Basepath: ../..\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -64,19 +64,19 @@ msgstr "نمایش یا مخفی کردن گزینه جستجو در ماژٰو�
 
 #: config/block.php:59
 msgid "Title field description"
-msgstr ""
+msgstr "توضیع داخل باکس جستجو"
 
 #: config/block.php:66
 msgid "Disable Submit button"
-msgstr ""
+msgstr "غیرفعال کردن دکمه ارسال"
 
 #: config/block.php:72
 msgid "Ajax search delay"
-msgstr ""
+msgstr "تاریخ در جستجوی ای جکسی"
 
 #: config/block.php:73
 msgid "Set delay by milliseconds"
-msgstr ""
+msgstr "میزان تاخیر را به میلی ثانیه وارد کنید"
 
 #: config/block.php:79
 msgid "Use block effects"
@@ -89,11 +89,11 @@ msgstr ""
 
 #: config/config.php:13
 msgid "Modules"
-msgstr ""
+msgstr "ماژول ها"
 
 #: config/config.php:17
 msgid "Search engines"
-msgstr ""
+msgstr "موتور های جستجو"
 
 #: config/config.php:23
 msgid "Leading search result limit"
@@ -147,101 +147,114 @@ msgid "It make your website little slow"
 msgstr "فعال کردن این گزینه ممکن است مقداری سایت شما را کُند نماید"
 
 #: config/config.php:68
+msgid "Use custom template"
+msgstr "استفاده از تمپلیت شخصی"
+
+#: config/config.php:69
+msgid "if Check it, on result system use custom template from modules"
+msgstr ""
+"اگر این گزینه را انتخاب کنید در نتایج جستجو از تمپلیت شخصی سازی شده در ماژول "
+"استفاده می شود"
+
+#: config/config.php:76
 msgid "Search interval limit"
 msgstr "محدودیت فاصله دو جستجو"
 
-#: config/config.php:69
+#: config/config.php:77
 msgid "Limit for search time interval."
 msgstr "محدودیت زمان برای فاصله بین دو جستجو"
 
-#: config/config.php:75
+#: config/config.php:83
 msgid "Anonymous interval limit"
 msgstr "محدودیت جستجو کاربر مهمان"
 
-#: config/config.php:76
+#: config/config.php:84
 msgid "Limit for anonymous search time interval."
 msgstr "محدودیت زمان برای فاصله بین دو جستجو توسط کاربر مهمان"
 
-#: config/config.php:82
+#: config/config.php:90
 msgid "Search result cache"
 msgstr "کَش نتایج جستجو"
 
-#: config/config.php:88
+#: config/config.php:96
 msgid "Hot search"
 msgstr "جستجوی داغ"
 
-#: config/config.php:89
+#: config/config.php:97
 msgid "Hot words for global auto-complete, separated by comma `,`."
 msgstr ""
 "کلمات داغ برای جستجوی سراسری به صورت اتو-کمپلیت ، با استفاده از کاما `,` جدا "
 "کنید."
 
-#: config/config.php:95
+#: config/config.php:103
 msgid "Modules to search"
 msgstr "ماژول ها برای جستجو"
 
-#: config/config.php:96
+#: config/config.php:104
 msgid "Only specified modules are allowed to search, separated by \",\"."
 msgstr ""
 "تنها ماژول های مشخص شده برای جستجو در دسترس هستند. با استفاده از \",\" جدا "
 "کنید."
 
-#: config/config.php:101
+#: config/config.php:109
 msgid "Field to search"
-msgstr ""
+msgstr "فیلد های مورد جستجو"
 
-#: config/config.php:102
+#: config/config.php:110
 msgid ""
 "If set field name here, system just search on that fields on your modules "
 "but if your set field not exist on module fields search on all module "
 "fields, separated by \",\"."
 msgstr ""
+"اگر نام یک فیلد را در اینجا وارد کنید، سیستم فقط بر روی آن فیلد جستجو انجام "
+"خواهد داد، اما اگر فیلدی که وارد میکنید در ماژول خاصی موجود نباشد، سیستم بر "
+"روی تمام فیلد های مشخص شده آن ماژول جستجو را انجام می دهد"
 
-#: config/config.php:107
+#: config/config.php:115
 msgid "Module open link type"
-msgstr ""
+msgstr "نوع لینک نتایج بیشتر"
 
-#: config/config.php:112
+#: config/config.php:120
 msgid "Open more result on search"
-msgstr ""
+msgstr "صفحه ماژول جستجو باز شود"
 
-#: config/config.php:113
+#: config/config.php:121
 msgid "Open more result on module"
-msgstr ""
+msgstr "صفحه ماژول مربوطه باز شود"
 
-#: config/config.php:122
+#: config/config.php:130
 msgid "Google local host"
 msgstr "آدرس محلی گوگل"
 
-#: config/config.php:123
+#: config/config.php:131
 msgid "Specify a google local host if it is not https://www.google.com"
 msgstr "آدرس محلی گوگل را اگر https://www.google.com نیست مشخص کنید."
 
-#: config/config.php:129
-msgid "Display Google link"
-msgstr ""
-
 #: config/config.php:137
+msgid "Display Google link"
+msgstr "نمایش لینک گوگل"
+
+#: config/config.php:145
 msgid "Google custom search code"
 msgstr "کد جستجو شخصی گوگل"
 
-#: config/config.php:138
+#: config/config.php:146
 msgid "Google CSE provided at https://www.google.com/cse/"
 msgstr "گوگل CSE ارائه شده در https://www.google.com/cse/"
 
-#: config/config.php:144
-msgid "Display bing link"
-msgstr ""
-
 #: config/config.php:152
-msgid "Display Baidu link"
-msgstr ""
+msgid "Display bing link"
+msgstr "نمایش لینک بینگ"
 
 #: config/config.php:160
+msgid "Display Baidu link"
+msgstr "نمایش لینک بایدو"
+
+#: config/config.php:168
 msgid "Baidu custom search code"
 msgstr "ایجاد کد جستجوی شخصی"
 
-#: config/config.php:161
+#: config/config.php:169
 msgid "Custom search provided by Baidu at http://zhanzhang.baidu.com/search/"
 msgstr ""
 "کد جستجوی شخصی ارائه شده توسط بایدو در http://zhanzhang.baidu.com/search/"
