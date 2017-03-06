@@ -215,6 +215,14 @@ class IndexController extends ActionController
             return;
         }
 
+        if ($config['module_link'] == 'module') {
+            $url = Pi::api('api', 'search')->moreLink($query, $module, '');
+            if (!empty($url)) {
+                $this->redirect()->toUrl($url);
+                return;
+            }
+        }
+
         if ($query) {
             $result = array();
             $terms = array();
