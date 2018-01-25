@@ -91,7 +91,7 @@ $mode = 'resultonly'; // 'resultonly', 'custom'
     <div class="panel-body" id="cse" style='width: 100%;'><?php _e('Loading ...'); ?></div>
 
     <script src="https://<?php echo $google['host']; ?>/jsapi" type="text/javascript"></script>
-    <script type="text/javascript">
+    <script>
         google.load('search', '1', {language: '<?php echo Pi::config('locale'); ?>'});
         google.setOnLoadCallback(function(){
             var customSearchControl = new google.search.CustomSearchControl('<?php echo $google['code']; ?>');
