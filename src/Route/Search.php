@@ -1,10 +1,10 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt BSD 3-Clause License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt BSD 3-Clause License
  */
 
 namespace Module\Search\Route;
@@ -36,11 +36,11 @@ class Search extends Standard
      * Default values.
      * @var array
      */
-    protected $defaults = array(
-        'module'        => 'search',
-        'controller'    => 'index',
-        'action'        => 'index'
-    );
+    protected $defaults = [
+        'module'     => 'search',
+        'controller' => 'index',
+        'action'     => 'index',
+    ];
 
     /**
      * {@inheritDoc}
@@ -49,32 +49,32 @@ class Search extends Standard
     {
         $matches = null;
 
-        $parts = array();
+        $parts = [];
         if ($path) {
             $parts = array_filter(explode($this->structureDelimiter, $path));
         }
         if ($parts) {
-            $matches = array();
+            $matches               = [];
             $matches['controller'] = 'index';
-            $term = array_shift($parts);
+            $term                  = array_shift($parts);
             if ('service' == $term) {
-                $matches['controller']  = 'index';
-                $matches['action']      = 'service';
+                $matches['controller'] = 'index';
+                $matches['action']     = 'service';
                 if ($parts) {
                     $matches['service'] = $parts[0];
                 }
             } elseif ('ajax' == $term) {
-                $matches['controller']  = 'index';
-                $matches['action']      = 'ajax';
+                $matches['controller'] = 'index';
+                $matches['action']     = 'ajax';
 
             } else {
                 $matches['action'] = 'module';
-                $matches['m'] = $term;
+                $matches['m']      = $term;
             }
 
             if ($parts) {
                 $matches = array_merge(
-                    (array) $matches,
+                    (array)$matches,
                     $this->parseParams($parts)
                 );
             }
@@ -84,7 +84,7 @@ class Search extends Standard
             $matches = array_merge($this->defaults, $matches);
         } else {
             //$path = $this->defaults['module'] . $this->structureDelimiter . $path;
-            $path = $this->prefix . $this->structureDelimiter . $path;
+            $path    = $this->prefix . $this->structureDelimiter . $path;
             $matches = parent::parse($path);
         }
 
@@ -99,7 +99,7 @@ class Search extends Standard
         $url = '';
         if ($this->defaults['controller'] != $params['controller']) {
             foreach ($params as $key => $value) {
-                if (in_array($key, array('module', 'controller', 'action'))) {
+                if (in_array($key, ['module', 'controller', 'action'])) {
                     continue;
                 }
                 if (null === $value || '' === $value) {
@@ -121,22 +121,22 @@ class Search extends Standard
      */
     protected function assembleStructure(array $params, $url = '')
     {
-        $mca    = array();
-        foreach (array('controller', 'action') as $key) {
+        $mca = [];
+        foreach (['controller', 'action'] as $key) {
             if (!empty($params[$key])) {
                 $mca[$key] = $this->encode($params[$key]);
             }
         }
 
-        $query  = array();
+        $query = [];
         if ($this->defaults['controller'] == $params['controller']) {
             if (!empty($params['m'])) {
                 $mca['controller'] = $params['m'];
-                $mca['action'] = $this->defaults['action'];
+                $mca['action']     = $this->defaults['action'];
             } elseif (!empty($params['s']) || !empty($params['service'])) {
-                $service = !empty($params['s']) ? $params['s'] : $params['service'];
+                $service           = !empty($params['s']) ? $params['s'] : $params['service'];
                 $mca['controller'] = 'service';
-                $mca['action'] = $service;
+                $mca['action']     = $service;
             }
             if (!empty($params['q'])) {
                 $query['q'] = $params['q'];
@@ -146,7 +146,7 @@ class Search extends Standard
         }
 
         if ($this->paramDelimiter === $this->structureDelimiter) {
-            foreach(array('action', 'controller') as $key) {
+            foreach (['action', 'controller'] as $key) {
                 if ((!empty($url) || $mca[$key] !== $this->defaults[$key]) && $mca[$key] !== 'index') {
                     $url = $this->encode($mca[$key]) . $this->paramDelimiter
                         . $url;

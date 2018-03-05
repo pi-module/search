@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\Search\Api;
 
 use Pi;
@@ -22,35 +23,35 @@ use Zend\Db\Sql\Predicate\Expression;
 
 class Log extends AbstractApi
 {
-    public function saveLog($terms = array())
+    public function saveLog($terms = [])
     {
         if (!empty($terms)) {
             foreach ($terms as $term) {
                 // Save user log
-                $log = Pi::model('log', $this->getModule())->createRow();
+                $log       = Pi::model('log', $this->getModule())->createRow();
                 $log->term = $term;
-                $log->uid = Pi::user()->getId();
-                $log->ip = Pi::user()->getIp();
+                $log->uid  = Pi::user()->getId();
+                $log->ip   = Pi::user()->getIp();
                 $log->time = time();
                 $log->save();
                 // Update dictionary
-                $columns = array('count' => new Expression('count(*)'));
-                $where = array('term' => $term);
-                $select = Pi::model('dictionary', $this->getModule())->select()->where($where);
-                $rowset = Pi::model('dictionary', $this->getModule())->selectWith($select)->toArray();
+                $columns = ['count' => new Expression('count(*)')];
+                $where   = ['term' => $term];
+                $select  = Pi::model('dictionary', $this->getModule())->select()->where($where);
+                $rowset  = Pi::model('dictionary', $this->getModule())->selectWith($select)->toArray();
                 if (!empty($rowset)) {
                     foreach ($rowset as $dictionary) {
                         if ($dictionary['term'] === $term) {
                             Pi::model('dictionary', $this->getModule())->update(
-                                array('weight' => $dictionary['weight'] + 1),
-                                array('term' => $dictionary['term'])
+                                ['weight' => $dictionary['weight'] + 1],
+                                ['term' => $dictionary['term']]
                             );
                         }
                     }
                 } else {
-                    $dictionary = Pi::model('dictionary', $this->getModule())->createRow();
+                    $dictionary         = Pi::model('dictionary', $this->getModule())->createRow();
                     $dictionary->weight = 1;
-                    $dictionary->term = $term;
+                    $dictionary->term   = $term;
                     $dictionary->save();
                 }
             }

@@ -1,15 +1,16 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\Search\Installer\Action;
 
 use Pi;
@@ -26,7 +27,7 @@ class Update extends BasicUpdate
     protected function attachDefaultListeners()
     {
         $events = $this->events;
-        $events->attach('update.pre', array($this, 'updateSchema'));
+        $events->attach('update.pre', [$this, 'updateSchema']);
         parent::attachDefaultListeners();
 
         return $this;
@@ -40,8 +41,8 @@ class Update extends BasicUpdate
         $moduleVersion = $e->getParam('version');
 
         // Set item model
-        $logModel = Pi::model('log', $this->module);
-        $logTable = $logModel->getTable();
+        $logModel   = Pi::model('log', $this->module);
+        $logTable   = $logModel->getTable();
         $logAdapter = $logModel->getAdapter();
 
         // Update to version 1.1.5
@@ -51,11 +52,11 @@ class Update extends BasicUpdate
             try {
                 $logAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult('db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]);
                 return false;
             }
         }

@@ -5,8 +5,8 @@
 .search-block .dropdown-menu {
     width: auto;
     margin: 0;
-    padding-top: 0!important;
-    padding-bottom: 0!important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     border: 0;
     margin-left: 15px;
     margin-right: 15px;
@@ -15,7 +15,7 @@
 }
 
 .search-block .dropdown-menu li {
-    border-bottom: 1px solid #ddd ;
+    border-bottom: 1px solid #ddd;
 }
 
 .search-block .dropdown-menu li i {
@@ -46,7 +46,7 @@
 
 .carousel-caption-search .search-block .input-group,
 .carousel-caption-search .search-block .btn,
-.carousel-caption-search .search-block .input-group input[type=text]{
+.carousel-caption-search .search-block .input-group input[type=text] {
     height: 45px;
 }
 

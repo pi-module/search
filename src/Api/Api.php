@@ -1,20 +1,20 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
+
 namespace Module\Search\Api;
 
 use Pi;
 use Pi\Application\Api\AbstractApi;
-use Pi\View\Resolver\ModuleTemplate as ModuleTemplateResolver;
 
 /*
  * Pi::api('api', 'search')->parseQuery($query);
@@ -35,7 +35,7 @@ class Api extends AbstractApi
      */
     public function parseQuery($query = '')
     {
-        $result = array();
+        $result = [];
         // Get config
         $config = Pi::service("registry")->config->read($this->getModule());
         // Set term length
@@ -45,13 +45,13 @@ class Api extends AbstractApi
             // Text quoted by `"` or `'` should be matched exactly
             $pattern = '`(?:(?:"(?:\\"|[^"])+")|(?:\'(?:\\\'|[^\'])+\'))`is';
 
-            $terms = array();
+            $terms    = [];
             $callback = function ($match) use (&$terms) {
                 $terms[] = substr($match[0], 1, -1);
                 return ' ';
             };
-            $string = preg_replace_callback($pattern, $callback, $query);
-            $terms = array_merge($terms, explode(' ', $string));
+            $string   = preg_replace_callback($pattern, $callback, $query);
+            $terms    = array_merge($terms, explode(' ', $string));
 
             array_walk($terms, function ($term) use (&$result, $length) {
                 $term = $this->localizeQuery($term);
@@ -63,7 +63,7 @@ class Api extends AbstractApi
             $result = array_filter(array_unique($result));
         } else {
             if (!$length || strlen($query) >= $length) {
-                $query = $this->localizeQuery($query);
+                $query    = $this->localizeQuery($query);
                 $result[] = _strip($query);
             }
         }
@@ -88,15 +88,15 @@ class Api extends AbstractApi
                 // Set for persian language
                 case 'fa':
                     $query = str_replace(
-                        array('ي', 'ك', '٤', '٥', '٦', 'ة'),
-                        array('ی', 'ک', '۴', '۵', '۶', 'ه'),
+                        ['ي', 'ك', '٤', '٥', '٦', 'ة'],
+                        ['ی', 'ک', '۴', '۵', '۶', 'ه'],
                         $query);
                     break;
 
                 case 'fr':
                     $query = str_replace(
-                        array("d'"),
-                        array(''),
+                        ["d'"],
+                        [''],
                         $query);
                     break;
             }
@@ -153,21 +153,21 @@ class Api extends AbstractApi
             switch ($module) {
                 case 'shop':
                     $shopConfig = Pi::service('registry')->config->read('shop');
-                    $url = Pi::url(Pi::service('url')->assemble('shop', array(
-                        'module' => 'shop',
+                    $url        = Pi::url(Pi::service('url')->assemble('shop', [
+                        'module'     => 'shop',
                         'controller' => ($shopConfig['homepage_type'] == 'brand') ? 'result' : 'index',
-                        'action' => 'index',
-                        'slug' => sprintf('#!/search?title=%s', $query),
-                    )));
+                        'action'     => 'index',
+                        'slug'       => sprintf('#!/search?title=%s', $query),
+                    ]));
                     break;
 
                 case 'video':
-                    $url = Pi::url(Pi::service('url')->assemble('video', array(
-                        'module' => 'video',
+                    $url = Pi::url(Pi::service('url')->assemble('video', [
+                        'module'     => 'video',
                         'controller' => 'index',
-                        'action' => 'index',
-                        'slug' => sprintf('#!/search?title=%s', $query),
-                    )));
+                        'action'     => 'index',
+                        'slug'       => sprintf('#!/search?title=%s', $query),
+                    ]));
                     break;
 
                 /* case 'event':

@@ -26,14 +26,15 @@ $this->headMeta('noindex', 'robots');
         <?php if ($total >= 1) { ?>
             <?php $template = $this->template('search-result', 'front', $searchModule); ?>
             <?php foreach ($result as $item) { ?>
-                <?php if(!empty($template) && $config['use_custom_template']) { ?>
+                <?php if (!empty($template) && $config['use_custom_template']) { ?>
                     <?php include $template; ?>
                 <?php } else { ?>
                     <div class="search-result-item clearfix">
                         <?php if (!empty($item['image'])) { ?>
                             <div class="col-md-2">
                                 <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
-                                    <img class="img-responsive img-rounded" src="<?php echo $this->escape($item['image']); ?>"
+                                    <img class="img-responsive img-rounded"
+                                         src="<?php echo $this->escape($item['image']); ?>"
                                          alt="<?php echo $this->escape($item['title']); ?>">
                                 </a>
                             </div>

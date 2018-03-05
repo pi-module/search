@@ -1,10 +1,10 @@
 <?php
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt BSD 3-Clause License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt BSD 3-Clause License
  */
 
 namespace Module\Search\Api;
@@ -24,47 +24,47 @@ class Breadcrumbs extends AbstractBreadcrumbs
 
         // Set module link
         $moduleData = Pi::registry('module')->read($this->getModule());
-        $result = array(
-           	array(
-               	'label' => $moduleData['title'],
-               	'href'  => Pi::url(Pi::service('url')->assemble('search', array(
+        $result     = [
+            [
+                'label' => $moduleData['title'],
+                'href'  => Pi::url(Pi::service('url')->assemble('search', [
                     'module' => $this->getModule(),
-               	))),
-           	),
-        );
+                ])),
+            ],
+        ];
 
         switch ($params['action']) {
             case 'service':
-                $result[] = array(
+                $result[] = [
                     'label' => __(ucfirst($params['service'])),
-                    'href'  => Pi::url(Pi::service('url')->assemble('search', array(
-                       	'module' => $this->getModule(),
-                       	'service' => $params['service'],
-               	   	))),
-                );
+                    'href'  => Pi::url(Pi::service('url')->assemble('search', [
+                        'module'  => $this->getModule(),
+                        'service' => $params['service'],
+                    ])),
+                ];
                 break;
 
             case 'module':
-        	      $moduleData = Pi::registry('module')->read($params['m']);
-                $result[] = array(
+                $moduleData = Pi::registry('module')->read($params['m']);
+                $result[]   = [
                     'label' => $moduleData['title'],
-                    'href'  => Pi::url(Pi::service('url')->assemble('search', array(
+                    'href'  => Pi::url(Pi::service('url')->assemble('search', [
                         'module' => $this->getModule(),
-                        'm' => $moduleData['name'],
-                    ))),
-                );
+                        'm'      => $moduleData['name'],
+                    ])),
+                ];
                 break;
         }
 
         $query = _get('q');
         if (empty($query)) {
-        	end($result);
-        	$key = key($result);
-        	unset($result[$key]['href']);
+            end($result);
+            $key = key($result);
+            unset($result[$key]['href']);
         } else {
-            $result[] = array(
+            $result[] = [
                 'label' => $query,
-            );
+            ];
         }
 
         return $result;

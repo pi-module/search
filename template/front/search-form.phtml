@@ -3,8 +3,8 @@
     <div class="col-md-8 col-md-offset-2 col-xs-12">
         <form method="get" id="js-search-form"
               data-url="<?php echo $this->url('search'); ?>"
-              data-module-url="<?php echo $this->url('search', array('m' => '_NAME')); ?>"
-              data-service-url="<?php echo $this->url('search', array('service' => '_NAME')); ?>"
+              data-module-url="<?php echo $this->url('search', ['m' => '_NAME']); ?>"
+              data-service-url="<?php echo $this->url('search', ['service' => '_NAME']); ?>"
               data-module="<?php echo $searchModule; ?>">
             <div class="search-tabs">
                 <ul class="list-inline">
