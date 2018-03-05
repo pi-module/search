@@ -14,6 +14,9 @@
                 </tr>
             <?php } ?>
         </table>
+        <div class="paginator">
+            <?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?>
+        </div>
     <?php } else { ?>
         <div class="alert alert-danger" role="alert">
             <?php _e('Save log option for search module not active'); ?>
