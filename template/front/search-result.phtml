@@ -3,11 +3,11 @@ $this->css($this->assetModule('front/front.css'));
 $this->headMeta('noindex', 'robots');
 ?>
 <div class="clearfix">
-    <div class="col-md-8 col-md-offset-2 col-xs-12 text-center">
+    <div class="col-md-8 col-md-offset-2 col-12 text-center">
         <h1><?php echo sprintf(__('Search result of %s'), $this->escape($query)); ?></h1>
     </div>
     <?php include $this->template('./search-form.phtml'); ?>
-    <div class="well well-sm">
+    <div class="card card-body bg-light mb-3">
         <?php if (0 < $total) {
             echo sprintf(__('On all modules we found about <strong>%d</strong> result on search of <strong>%s</strong>'), $total, $this->escape($query));
         } elseif (!empty($flood)) {
@@ -24,12 +24,12 @@ $this->headMeta('noindex', 'robots');
             <div class="clearfix">
                 <div class="clearfix page-header">
                     <?php if (isset($query) && !empty($query)) { ?>
-                        <h2 class="col-md-10 panel-title"><?php echo sprintf(__('Search result of %s on %s'), $this->escape($query), $this->escape($modules[$name]['title'])); ?></h2>
+                        <h2 class="col-md-10 card-title"><?php echo sprintf(__('Search result of %s on %s'), $this->escape($query), $this->escape($modules[$name]['title'])); ?></h2>
                     <?php } else { ?>
-                        <h2 class="col-md-10 panel-title"><?php _e('Search result'); ?></h2>
+                        <h2 class="col-md-10 card-title"><?php _e('Search result'); ?></h2>
                     <?php } ?>
                     <div class="col-md-2 text-right">
-                        <span class="label label-default">
+                        <span class="badge badge-default">
                             <?php echo sprintf(__('%d found.'), $total); ?>
                         </span>
                     </div>
@@ -43,7 +43,7 @@ $this->headMeta('noindex', 'robots');
                             <?php if (!empty($item['image'])) { ?>
                                 <div class="col-md-2">
                                     <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
-                                        <img class="img-responsive img-rounded"
+                                        <img class="img-fluid rounded"
                                              src="<?php echo $this->escape($item['image']); ?>"
                                              alt="<?php echo $this->escape($item['title']); ?>">
                                     </a>
@@ -68,7 +68,7 @@ $this->headMeta('noindex', 'robots');
                 <?php if ($total > Pi::config('leading_limit', 'search')) { ?>
                     <div class="search-all-result clearfix col-md-12 text-right">
                         <a href="<?php echo $modules[$name]['url']; ?>">
-                            <span class="label label-success"><?php echo __('All result &raquo;'); ?></span>
+                            <span class="badge badge-success"><?php echo __('All result &raquo;'); ?></span>
                         </a>
                     </div>
                 <?php } ?>

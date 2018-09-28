@@ -3,7 +3,7 @@ $this->css($this->assetModule('front/front.css'));
 $this->headMeta('noindex', 'robots');
 ?>
 <div class="clearfix">
-    <div class="col-md-8 col-md-offset-2 col-xs-12 text-center">
+    <div class="col-md-8 col-md-offset-2 col-12 text-center">
         <?php if (isset($query) && !empty($query)) { ?>
             <h1><?php echo sprintf(__('Search result of %s on %s'), $this->escape($query), $this->escape($modules[$searchModule]['title'])); ?></h1>
         <?php } else { ?>
@@ -12,7 +12,7 @@ $this->headMeta('noindex', 'robots');
     </div>
     <?php include $this->template('./search-form.phtml'); ?>
 
-    <div class="well well-sm">
+    <div class="card card-body bg-light mb-3">
         <?php if (0 < $total) {
             echo sprintf(__('On <strong>%s</strong> module we found about <strong>%d</strong> result on search of <strong>%s</strong>'), $this->escape($modules[$searchModule]['title']), $total, $this->escape($query));
         } elseif (!empty($flood)) {
@@ -33,7 +33,7 @@ $this->headMeta('noindex', 'robots');
                         <?php if (!empty($item['image'])) { ?>
                             <div class="col-md-2">
                                 <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
-                                    <img class="img-responsive img-rounded"
+                                    <img class="img-fluid rounded"
                                          src="<?php echo $this->escape($item['image']); ?>"
                                          alt="<?php echo $this->escape($item['title']); ?>">
                                 </a>
