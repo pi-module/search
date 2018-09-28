@@ -4,10 +4,10 @@ $this->headMeta('noindex', 'robots');
 $this->footScript()->appendFile($this->assetModule('front/search-tabs.js'));
 ?>
 <div class="row">
-    <div class="col-md-8 col-md-offset-2 col-xs-12 text-center">
+    <div class="col-md-8 col-md-offset-2 col-12 text-center">
         <h1><?php _e('Search'); ?></h1>
     </div>
-    <div class="col-md-8 col-md-offset-2 col-xs-12">
+    <div class="col-md-8 col-md-offset-2 col-12">
         <form method="get" id="js-search-form"
               data-url="<?php echo $this->url('search'); ?>"
               data-module-url="<?php echo $this->url('search', ['m' => '_NAME']); ?>"
@@ -15,7 +15,7 @@ $this->footScript()->appendFile($this->assetModule('front/search-tabs.js'));
               data-module="<?php echo $searchModule; ?>">
             <div class="search-tabs">
                 <ul class="list-inline">
-                    <li>
+                    <li class="list-inline-item">
                         <a href="#" class="js-search-global<?php if (!$searchModule) {
                             echo ' active';
                         } ?>">
@@ -25,7 +25,7 @@ $this->footScript()->appendFile($this->assetModule('front/search-tabs.js'));
                     <?php
                     foreach ($modules as $name => $data) {
                         echo sprintf(
-                            '<li><a data-name="%s" href="#" class="js-search-module%s">%s</a></li>',
+                            '<li class="list-inline-item"><a data-name="%s" href="#" class="js-search-module%s">%s</a></li>',
                             $name,
                             $name == $searchModule ? ' active' : '',
                             $this->escape($data['title'])
@@ -48,7 +48,7 @@ $this->footScript()->appendFile($this->assetModule('front/search-tabs.js'));
                 <ul class="list-inline">
                     <?php foreach ($service as $name => $data) {
                         echo sprintf(
-                            '<li><a data-name="%s" href="#" class="js-search-service">%s</a></li>',
+                            '<li class="list-inline-item"><a data-name="%s" href="#" class="js-search-service">%s</a></li>',
                             $name,
                             $this->escape($data['title'])
                         );

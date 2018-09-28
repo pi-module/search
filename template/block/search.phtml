@@ -13,9 +13,9 @@
                 var results = jQuery.parseJSON(data);
                 $(results).each(function (key, value) {
                     if (value.image != '') {
-                        $('.search-results').append('<li' + value.class + '><a title="' + value.title + '" href="' + value.url + '"><img src="' + value.image + '" alt="' + value.title + '"> ' + value.title + '</a></li>');
+                        $('.search-results').append('<a class="dropdown-item ' + value.class + '" title="' + value.title + '" href="' + value.url + '"><img src="' + value.image + '" alt="' + value.title + '"> ' + value.title + '</a>');
                     } else {
-                        $('.search-results').append('<li' + value.class + '><a title="' + value.title + '" href="' + value.url + '">' + value.title + '</a></li>');
+                        $('.search-results').append('<a class="dropdown-item ' + value.class + '" title="' + value.title + '" href="' + value.url + '">' + value.title + '</a>');
                     }
                 })
             });
@@ -32,9 +32,9 @@
         var keyword = $("#search-keyword").val();
         $(".search-info-text").remove();
         if (keyword.length == 0) {
-            $(".search-results").show().append('<li class="search-info-text"><a>%s</a></li>');
+            $(".search-results").show().append('<a class="dropdown-item search-info-text">%s</a>');
         } else {
-            $(".search-results").show().append('<li class="search-info-text"><a>%s</a></li>');
+            $(".search-results").show().append('<a class="dropdown-item search-info-text">%s</a>');
         }
     });
 })(jQuery)
@@ -65,14 +65,14 @@ EOT;
                         </div>
                     <?php } else { ?>
                         <div class="input-group-btn">
-                            <button class="btn btn-default">
+                            <button class="btn btn-secondary">
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
                     <?php } ?>
                 </div>
             </form>
-            <ul class="search-results dropdown-menu"></ul>
+            <div class="search-results dropdown-menu"></div>
         </div>
     <?php } else { ?>
         <form method="get" action="<?php echo $block['action']; ?>"
@@ -83,19 +83,17 @@ EOT;
                 <input type="text" class="form-control" name="q" placeholder="<?php echo _b('Search'); ?>">
                 <div class="input-group-btn">
                     <?php if (!empty($block['list'])) { ?>
-                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-search"></i>
-                            <span class="caret"></span>
+
                         </a>
-                        <ul class="dropdown-menu pull-right" id="js-search-menu">
+                        <div class="dropdown-menu pull-right" id="js-search-menu">
                             <?php foreach ($block['list'] as $name => $label) { ?>
-                                <li>
-                                    <a href="#" data-value="<?php echo $this->escape($name); ?>">
+                                    <a class="dropdown-item" href="#" data-value="<?php echo $this->escape($name); ?>">
                                         <?php echo $this->escape($label); ?>
                                     </a>
-                                </li>
                             <?php } ?>
-                        </ul>
+                        </div>
                         <input type="hidden" name="m">
                     <?php } else { ?>
                         <?php if ($block['options']['module'] != 'all') { ?>
@@ -106,7 +104,7 @@ EOT;
                                 <i class="fa fa-search"></i>
                             </div>
                         <?php } else { ?>
-                            <button class="btn btn-default">
+                            <button class="btn btn-secondary">
                                 <i class="fa fa-search"></i>
                             </button>
                         <?php } ?>
