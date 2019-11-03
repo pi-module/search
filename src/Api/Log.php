@@ -27,6 +27,7 @@ class Log extends AbstractApi
     {
         if (!empty($terms)) {
             foreach ($terms as $term) {
+
                 // Save user log
                 $log       = Pi::model('log', $this->getModule())->createRow();
                 $log->term = $term;
@@ -34,8 +35,8 @@ class Log extends AbstractApi
                 $log->ip   = Pi::user()->getIp();
                 $log->time = time();
                 $log->save();
+
                 // Update dictionary
-                $columns = ['count' => new Expression('count(*)')];
                 $where   = ['term' => $term];
                 $select  = Pi::model('dictionary', $this->getModule())->select()->where($where);
                 $rowset  = Pi::model('dictionary', $this->getModule())->selectWith($select)->toArray();

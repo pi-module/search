@@ -18,11 +18,15 @@ class Block
         $config = Pi::service('registry')->config->read('search');
 
         $formAction = Pi::url(Pi::service('url')->assemble('search'));
-        $ajaxAction = Pi::url(Pi::service('url')->assemble('search', [
-            'module'     => 'search',
-            'controller' => 'index',
-            'action'     => 'ajax',
-        ]));
+        $ajaxAction = Pi::url(
+            Pi::service('url')->assemble(
+                'search', [
+                'module'     => 'search',
+                'controller' => 'index',
+                'action'     => 'ajax',
+            ]
+            )
+        );
 
         $list = [];
 

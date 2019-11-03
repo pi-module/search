@@ -52,11 +52,13 @@ class Update extends BasicUpdate
             try {
                 $logAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', [
+                $this->setResult(
+                    'db', [
                     'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ]);
+                ]
+                );
                 return false;
             }
         }

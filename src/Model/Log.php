@@ -20,11 +20,12 @@ class Log extends Model
     /**
      * {@inheritDoc}
      */
-    protected $columns = [
-        'id',
-        'term',
-        'uid',
-        'ip',
-        'time',
-    ];
+    protected $columns
+        = [
+            'id',
+            'term',
+            'uid',
+            'ip',
+            'time',
+        ];
 }

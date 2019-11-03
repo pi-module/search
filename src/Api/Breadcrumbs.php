@@ -27,9 +27,13 @@ class Breadcrumbs extends AbstractBreadcrumbs
         $result     = [
             [
                 'label' => $moduleData['title'],
-                'href'  => Pi::url(Pi::service('url')->assemble('search', [
-                    'module' => $this->getModule(),
-                ])),
+                'href'  => Pi::url(
+                    Pi::service('url')->assemble(
+                        'search', [
+                        'module' => $this->getModule(),
+                    ]
+                    )
+                ),
             ],
         ];
 
@@ -37,10 +41,14 @@ class Breadcrumbs extends AbstractBreadcrumbs
             case 'service':
                 $result[] = [
                     'label' => __(ucfirst($params['service'])),
-                    'href'  => Pi::url(Pi::service('url')->assemble('search', [
-                        'module'  => $this->getModule(),
-                        'service' => $params['service'],
-                    ])),
+                    'href'  => Pi::url(
+                        Pi::service('url')->assemble(
+                            'search', [
+                            'module'  => $this->getModule(),
+                            'service' => $params['service'],
+                        ]
+                        )
+                    ),
                 ];
                 break;
 
@@ -48,10 +56,14 @@ class Breadcrumbs extends AbstractBreadcrumbs
                 $moduleData = Pi::registry('module')->read($params['m']);
                 $result[]   = [
                     'label' => $moduleData['title'],
-                    'href'  => Pi::url(Pi::service('url')->assemble('search', [
-                        'module' => $this->getModule(),
-                        'm'      => $moduleData['name'],
-                    ])),
+                    'href'  => Pi::url(
+                        Pi::service('url')->assemble(
+                            'search', [
+                            'module' => $this->getModule(),
+                            'm'      => $moduleData['name'],
+                        ]
+                        )
+                    ),
                 ];
                 break;
         }

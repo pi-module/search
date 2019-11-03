@@ -34,13 +34,15 @@ class Search extends Standard
 {
     /**
      * Default values.
+     *
      * @var array
      */
-    protected $defaults = [
-        'module'     => 'search',
-        'controller' => 'index',
-        'action'     => 'index',
-    ];
+    protected $defaults
+        = [
+            'module'     => 'search',
+            'controller' => 'index',
+            'action'     => 'index',
+        ];
 
     /**
      * {@inheritDoc}

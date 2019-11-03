@@ -36,10 +36,13 @@ class Api extends AbstractApi
     public function parseQuery($query = '')
     {
         $result = [];
+
         // Get config
         $config = Pi::service("registry")->config->read($this->getModule());
+
         // Set term length
         $length = $config['min_length'];
+
         // Check for separate query or not
         if ($config['separate_query']) {
             // Text quoted by `"` or `'` should be matched exactly
@@ -53,13 +56,15 @@ class Api extends AbstractApi
             $string   = preg_replace_callback($pattern, $callback, $query);
             $terms    = array_merge($terms, explode(' ', $string));
 
-            array_walk($terms, function ($term) use (&$result, $length) {
+            array_walk(
+                $terms, function ($term) use (&$result, $length) {
                 $term = $this->localizeQuery($term);
                 $term = _strip($term);
                 if (!$length || strlen($term) >= $length) {
                     $result[] = $term;
                 }
-            });
+            }
+            );
             $result = array_filter(array_unique($result));
         } else {
             if (!$length || strlen($query) >= $length) {
@@ -67,6 +72,7 @@ class Api extends AbstractApi
                 $result[] = _strip($query);
             }
         }
+
         // return result as array
         return $result;
     }
@@ -82,6 +88,7 @@ class Api extends AbstractApi
     {
         // Get config
         $config = Pi::service("registry")->config->read($this->getModule());
+
         // Check
         if ($config['localize_query']) {
             switch (Pi::config('locale')) {
@@ -90,14 +97,16 @@ class Api extends AbstractApi
                     $query = str_replace(
                         ['ي', 'ك', '٤', '٥', '٦', 'ة'],
                         ['ی', 'ک', '۴', '۵', '۶', 'ه'],
-                        $query);
+                        $query
+                    );
                     break;
 
                 case 'fr':
                     $query = str_replace(
                         ["d'"],
                         [''],
-                        $query);
+                        $query
+                    );
                     break;
             }
         }
@@ -146,28 +155,38 @@ class Api extends AbstractApi
     {
         // Set clean query
         $query = $this->parseStringQuery($query);
+
         // Get config
         $config = Pi::service("registry")->config->read($this->getModule());
+
         // Check
         if ($config['module_link'] == 'module') {
             switch ($module) {
                 case 'shop':
                     $shopConfig = Pi::service('registry')->config->read('shop');
-                    $url        = Pi::url(Pi::service('url')->assemble('shop', [
-                        'module'     => 'shop',
-                        'controller' => ($shopConfig['homepage_type'] == 'brand') ? 'result' : 'index',
-                        'action'     => 'index',
-                        'slug'       => sprintf('#!/search?title=%s', $query),
-                    ]));
+                    $url        = Pi::url(
+                        Pi::service('url')->assemble(
+                            'shop', [
+                            'module'     => 'shop',
+                            'controller' => ($shopConfig['homepage_type'] == 'brand') ? 'result' : 'index',
+                            'action'     => 'index',
+                            'slug'       => sprintf('#!/search?title=%s', $query),
+                        ]
+                        )
+                    );
                     break;
 
                 case 'video':
-                    $url = Pi::url(Pi::service('url')->assemble('video', [
-                        'module'     => 'video',
-                        'controller' => 'index',
-                        'action'     => 'index',
-                        'slug'       => sprintf('#!/search?title=%s', $query),
-                    ]));
+                    $url = Pi::url(
+                        Pi::service('url')->assemble(
+                            'video', [
+                            'module'     => 'video',
+                            'controller' => 'index',
+                            'action'     => 'index',
+                            'slug'       => sprintf('#!/search?title=%s', $query),
+                        ]
+                        )
+                    );
                     break;
 
                 /* case 'event':

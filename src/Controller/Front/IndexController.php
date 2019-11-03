@@ -173,26 +173,32 @@ class IndexController extends ActionController
             foreach ($result as $name => $data) {
                 $total += $data->getTotal();
             }
-            $this->view()->assign([
-                'query'  => $query,
-                'result' => $result,
-                'total'  => $total,
-                'flood'  => $flood,
-            ]);
+            $this->view()->assign(
+                [
+                    'query'  => $query,
+                    'result' => $result,
+                    'total'  => $total,
+                    'flood'  => $flood,
+                ]
+            );
             $this->view()->setTemplate('search-result');
         } else {
-            $this->view()->assign([
-                'query' => '',
-            ]);
+            $this->view()->assign(
+                [
+                    'query' => '',
+                ]
+            );
             $this->view()->setTemplate('search-home');
         }
 
-        $this->view()->assign([
-            'modules'      => $modules,
-            'service'      => $this->getService(),
-            'searchModule' => '',
-            'config'       => $config,
-        ]);
+        $this->view()->assign(
+            [
+                'modules'      => $modules,
+                'service'      => $this->getService(),
+                'searchModule' => '',
+                'config'       => $config,
+            ]
+        );
     }
 
     /**
@@ -241,7 +247,8 @@ class IndexController extends ActionController
                 $total  = $result ? $result->getTotal() : 0;
             }
             if ($total && $total > $limit) {
-                $paginator = Paginator::factory($total, [
+                $paginator = Paginator::factory(
+                    $total, [
                     'limit'       => $limit,
                     'page'        => $page,
                     'url_options' => [
@@ -254,28 +261,33 @@ class IndexController extends ActionController
                             ],
                         ],
                     ],
-                ]);
+                ]
+                );
             } else {
                 $paginator = null;
             }
 
-            $this->view()->assign([
-                'query'     => $query,
-                'result'    => $result,
-                'total'     => $total,
-                'flood'     => $flood,
-                'paginator' => $paginator,
-            ]);
+            $this->view()->assign(
+                [
+                    'query'     => $query,
+                    'result'    => $result,
+                    'total'     => $total,
+                    'flood'     => $flood,
+                    'paginator' => $paginator,
+                ]
+            );
             $this->view()->setTemplate('search-module-result');
         } else {
             $this->view()->setTemplate('search-home');
         }
-        $this->view()->assign([
-            'modules'      => $modules,
-            'service'      => $this->getService(),
-            'searchModule' => $module,
-            'config'       => $config,
-        ]);
+        $this->view()->assign(
+            [
+                'modules'      => $modules,
+                'service'      => $this->getService(),
+                'searchModule' => $module,
+                'config'       => $config,
+            ]
+        );
     }
 
     /**
@@ -302,11 +314,13 @@ class IndexController extends ActionController
                 $host = preg_replace('|^(http[s]?:\/\/)|i', '', $host);
                 $host = trim($host, '/');
             }
-            $this->view()->assign('google', [
+            $this->view()->assign(
+                'google', [
                 'code' => $code,
                 'host' => $host,
                 'q'    => $query,
-            ]);
+            ]
+            );
             $this->view()->setTemplate('search-google');
 
             return;
@@ -326,9 +340,9 @@ class IndexController extends ActionController
     /**
      * Do search query
      *
-     * @param array $terms
-     * @param int $limit
-     * @param int $offset
+     * @param array        $terms
+     * @param int          $limit
+     * @param int          $offset
      * @param string|array $in
      *
      * @return array
@@ -418,18 +432,20 @@ class IndexController extends ActionController
                 continue;
             }
             $node           = $moduleList[$name];
-            $url            = Pi::url($this->url(
-                '',
-                [
-                    'action' => 'module',
-                    'm'      => $name,
-                ],
-                [
-                    'query' => [
-                        'q' => $query,
+            $url            = Pi::url(
+                $this->url(
+                    '',
+                    [
+                        'action' => 'module',
+                        'm'      => $name,
                     ],
-                ]
-            ));
+                    [
+                        'query' => [
+                            'q' => $query,
+                        ],
+                    ]
+                )
+            );
             $modules[$name] = [
                 'id'    => $node['id'],
                 'title' => $node['title'],

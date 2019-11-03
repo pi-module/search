@@ -54,15 +54,19 @@ class DictionaryController extends ActionController
             $paginator = Paginator::factory(intval($count));
             $paginator->setItemCountPerPage($limit);
             $paginator->setCurrentPageNumber($page);
-            $paginator->setUrlOptions([
-                'router' => $this->getEvent()->getRouter(),
-                'route'  => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
-                'params' => array_filter([
-                    'module'     => $this->getModule(),
-                    'controller' => 'dictionary',
-                    'action'     => 'index',
-                ]),
-            ]);
+            $paginator->setUrlOptions(
+                [
+                    'router' => $this->getEvent()->getRouter(),
+                    'route'  => $this->getEvent()->getRouteMatch()->getMatchedRouteName(),
+                    'params' => array_filter(
+                        [
+                            'module'     => $this->getModule(),
+                            'controller' => 'dictionary',
+                            'action'     => 'index',
+                        ]
+                    ),
+                ]
+            );
         }
 
         // Set template

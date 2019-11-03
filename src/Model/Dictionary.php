@@ -20,9 +20,10 @@ class Dictionary extends Model
     /**
      * {@inheritDoc}
      */
-    protected $columns = [
-        'id',
-        'term',
-        'weight',
-    ];
+    protected $columns
+        = [
+            'id',
+            'term',
+            'weight',
+        ];
 }
