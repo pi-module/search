@@ -3,76 +3,87 @@ $this->css($this->assetModule('front/front.css'));
 $this->headMeta('noindex', 'robots');
 ?>
 <div class="clearfix">
-    <div class="col-md-8 col-md-offset-2 col-xs-12 text-center">
+    <div class="col-lg-8 col-md-8 col-12 offset-lg-2 offset-md-2 text-center mt-3 mb-3">
         <h1><?php echo sprintf(__('Search result of %s'), $this->escape($query)); ?></h1>
     </div>
+
     <?php include $this->template('./search-form.phtml'); ?>
-    <div class="well well-sm">
-        <?php if (0 < $total) {
-            echo sprintf(__('On all modules we found about <strong>%d</strong> result on search of <strong>%s</strong>'), $total, $this->escape($query));
-        } elseif (!empty($flood)) {
-            _e('Submission flood detected, please wait for a while.');
-        } else {
-            _e('No result found.');
-        } ?>
+
+    <div class="card">
+        <div class="card-body">
+            <?php if (0 < $total) {
+                echo sprintf(__('On all modules we found about <strong>%d</strong> result on search of <strong>%s</strong>'), $total, $this->escape($query));
+            } elseif (!empty($flood)) {
+                _e('Submission flood detected, please wait for a while.');
+            } else {
+                _e('No result found.');
+            } ?>
+        </div>
     </div>
+
     <?php
     foreach ($result as $name => $data) {
         $total = $data->getTotal();
         if ($total >= 1) {
             ?>
             <div class="clearfix">
-                <div class="clearfix page-header">
+                <div class="clearfix mt-3 mb-3 row">
                     <?php if (isset($query) && !empty($query)) { ?>
-                        <h2 class="col-md-10 panel-title"><?php echo sprintf(__('Search result of %s on %s'), $this->escape($query), $this->escape($modules[$name]['title'])); ?></h2>
+                        <h2 class="col-lg-10 col-md-10 col-10"><?php echo sprintf(__('Search result of %s on %s'), $this->escape($query), $this->escape($modules[$name]['title'])); ?></h2>
                     <?php } else { ?>
-                        <h2 class="col-md-10 panel-title"><?php _e('Search result'); ?></h2>
+                        <h2 class="col-lg-10 col-md-10 col-10"><?php _e('Search result'); ?></h2>
                     <?php } ?>
-                    <div class="col-md-2 text-right">
-                        <span class="label label-default">
+                    <div class="col-lg-2 col-md-2 col-2">
+                        <span class="badge badge-secondary">
                             <?php echo sprintf(__('%d found.'), $total); ?>
                         </span>
                     </div>
                 </div>
-                <?php $template = $this->template('search-result', 'front', $name); ?>
-                <?php foreach ($data as $item) { ?>
-                    <?php if (!empty($template) && $config['use_custom_template']) { ?>
-                        <?php include $template; ?>
-                    <?php } else { ?>
-                        <div class="search-result-item clearfix">
-                            <?php if (!empty($item['image'])) { ?>
-                                <div class="col-md-2">
-                                    <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
-                                        <img class="img-responsive img-rounded"
-                                             src="<?php echo $this->escape($item['image']); ?>"
-                                             alt="<?php echo $this->escape($item['title']); ?>">
-                                    </a>
+                <hr />
+
+                <div class="clearfix mt-3 mb-3">
+                    <?php $template = $this->template('search-result', 'front', $name); ?>
+                    <?php foreach ($data as $item) { ?>
+                        <?php if (!empty($template) && $config['use_custom_template']) { ?>
+                            <?php include $template; ?>
+                        <?php } else { ?>
+                            <div class="search-result-item clearfix">
+                                <?php if (!empty($item['image'])) { ?>
+                                    <div class="col-lg-2 col-md-2 col-2">
+                                        <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
+                                            <img class="img-fluid"
+                                                 src="<?php echo $this->escape($item['image']); ?>"
+                                                 alt="<?php echo $this->escape($item['title']); ?>">
+                                        </a>
+                                    </div>
+                                <?php } ?>
+                                <div class="<?php if (!empty($item['image'])) { ?>col-lg-10 col-md-10 col-10<?php } else { ?>col-lg-12 col-md-12 col-12<?php } ?>">
+                                    <h3>
+                                        <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
+                                            <?php echo $this->escape($item['title']); ?>
+                                        </a>
+                                    </h3>
+                                    <p class="clearfix">
+                                        <?php echo $this->escape($item['content']); ?>
+                                    </p>
+                                    <p class="text-muted">
+                                        <?php echo _date($item['time']); ?>
+                                    </p>
                                 </div>
-                            <?php } ?>
-                            <div class="<?php if (!empty($item['image'])) { ?>col-md-10<?php } else { ?>col-md-12<?php } ?>">
-                                <h3>
-                                    <a title="<?php echo $item['title']; ?>" href="<?php echo $item['url']; ?>">
-                                        <?php echo $this->escape($item['title']); ?>
-                                    </a>
-                                </h3>
-                                <p class="clearfix">
-                                    <?php echo $this->escape($item['content']); ?>
-                                </p>
-                                <p class="text-muted">
-                                    <?php echo _date($item['time']); ?>
-                                </p>
                             </div>
+                        <?php } ?>
+                    <?php } ?>
+                </div>
+                <div class="clearfix mt-3 mb-3">
+                    <?php if ($total > Pi::config('leading_limit', 'search')) { ?>
+                        <div class="search-all-result clearfix col-lg-12 col-md-12 col-12 text-right">
+                            <a href="<?php echo $modules[$name]['url']; ?>">
+                                <span class="label label-success"><?php echo __('All result &raquo;'); ?></span>
+                            </a>
                         </div>
                     <?php } ?>
-                <?php } ?>
-                <?php if ($total > Pi::config('leading_limit', 'search')) { ?>
-                    <div class="search-all-result clearfix col-md-12 text-right">
-                        <a href="<?php echo $modules[$name]['url']; ?>">
-                            <span class="label label-success"><?php echo __('All result &raquo;'); ?></span>
-                        </a>
-                    </div>
-                <?php } ?>
+                </div>
             </div>
-        <?php }
-    } ?>
+        <?php } ?>
+    <?php } ?>
 </div>

@@ -4,19 +4,19 @@ $this->headMeta('noindex', 'robots');
 $this->footScript()->appendFile($this->assetModule('front/search-tabs.js'));
 ?>
 <div class="row">
-    <div class="col-md-8 col-md-offset-2 col-xs-12 text-center">
+    <div class="col-lg-8 col-md-8 col-12 offset-lg-2 offset-md-2 mt-3 mb-3">
         <h1><?php _e('Search'); ?></h1>
     </div>
-    <div class="col-md-8 col-md-offset-2 col-xs-12">
+    <div class="col-lg-8 col-md-8 col-12 offset-lg-2 offset-md-2">
         <form method="get" id="js-search-form"
               data-url="<?php echo $this->url('search'); ?>"
               data-module-url="<?php echo $this->url('search', ['m' => '_NAME']); ?>"
               data-service-url="<?php echo $this->url('search', ['service' => '_NAME']); ?>"
               data-module="<?php echo $searchModule; ?>">
-            <div class="search-tabs">
-                <ul class="list-inline">
-                    <li>
-                        <a href="#" class="js-search-global<?php if (!$searchModule) {
+            <div class="search-tabs mt-3 mb-3">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a href="#" class="js-search-global nav-link<?php if (!$searchModule) {
                             echo ' active';
                         } ?>">
                             <?php _e('Global'); ?>
@@ -25,7 +25,7 @@ $this->footScript()->appendFile($this->assetModule('front/search-tabs.js'));
                     <?php
                     foreach ($modules as $name => $data) {
                         echo sprintf(
-                            '<li><a data-name="%s" href="#" class="js-search-module%s">%s</a></li>',
+                            '<li class="nav-item"><a data-name="%s" href="#" class="js-search-module nav-link%s">%s</a></li>',
                             $name,
                             $name == $searchModule ? ' active' : '',
                             $this->escape($data['title'])
@@ -34,9 +34,8 @@ $this->footScript()->appendFile($this->assetModule('front/search-tabs.js'));
                     ?>
                 </ul>
             </div>
-            <div class="input-group">
-                <input type="text" name="q" class="form-control"
-                       value="<?php echo !empty($query) ? $this->escape($query) : ''; ?>"
+            <div class="input-group mt-3 mb-3">
+                <input type="text" name="q" class="form-control" value="<?php echo !empty($query) ? $this->escape($query) : ''; ?>"
                        placeholder="<?php _e('Keywords'); ?>">
                 <div class="input-group-btn">
                     <button type="submit" class="btn btn-primary">
@@ -44,17 +43,18 @@ $this->footScript()->appendFile($this->assetModule('front/search-tabs.js'));
                     </button>
                 </div>
             </div>
-            <div class="search-service">
-                <ul class="list-inline">
+            <div class="search-service mt-3 mb-3">
+                <ul class="nav justify-content-center"">
                     <?php foreach ($service as $name => $data) {
                         echo sprintf(
-                            '<li><a data-name="%s" href="#" class="js-search-service">%s</a></li>',
+                            '<li class="nav-item"><a data-name="%s" href="#" class="js-search-service nav-link">%s</a></li>',
                             $name,
                             $this->escape($data['title'])
                         );
                     } ?>
                 </ul>
             </div>
+
         </form>
     </div>
 </div>

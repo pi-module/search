@@ -1,8 +1,10 @@
 <?php $this->css($this->assetModule('css/admin.css')); ?>
 <div class="clearfix">
-    <h3><?php _e('List of top searched terms'); ?></h3>
+    <div class="mt-3 mb-3">
+        <h1><?php _e('List of top searched terms'); ?></h1>
+    </div>
     <?php if ($config['save_log']) { ?>
-        <table class="table table-striped table-bordered table-condensed">
+        <table class="table table-striped table-bordered table-hover table-sm mt-3 mb-3">
             <tr>
                 <th><?php _e('Term'); ?></th>
                 <th><?php _e('Count of search'); ?></th>
@@ -18,7 +20,7 @@
             <?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?>
         </div>
     <?php } else { ?>
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-danger mt-3 mb-3" role="alert">
             <?php _e('Save log option for search module not active'); ?>
         </div>
     <?php } ?>
