@@ -13,7 +13,7 @@ $this->headMeta('noindex', 'robots');
 
     <?php include $this->template('./search-form.phtml'); ?>
 
-    <div class="card">
+    <div class="card bg-light">
         <div class="card-body">
             <?php if (0 < $total) {
                 echo sprintf(__('On <strong>%s</strong> module we found about <strong>%d</strong> result on search of <strong>%s</strong>'), $this->escape($modules[$searchModule]['title']), $total, $this->escape($query));
@@ -60,7 +60,7 @@ $this->headMeta('noindex', 'robots');
             <?php } ?>
         </div>
         <div class="clearfix mt-3 mb-3">
-            <p class="pull-right text-muted">
+            <p class="pull-right badge badge-secondary">
                 <?php echo sprintf(__('%d found.'), $total); ?>
             </p>
         </div>

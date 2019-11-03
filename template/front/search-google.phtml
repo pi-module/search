@@ -4,7 +4,7 @@ $this->headMeta('noindex', 'robots');
 $mode = 'resultonly'; // 'resultonly', 'custom'
 ?>
 <?php if ('default' == $mode) { ?>
-    <div class="card">
+    <div class="card bg-light">
         <div class="card-heading">
             <h1 class="card-title"><?php echo sprintf(__('Google search for %s'), $this->escape(Pi::config('sitename'))); ?></h1>
         </div>
@@ -83,7 +83,7 @@ $mode = 'resultonly'; // 'resultonly', 'custom'
         </gcse:searchresults-only>
     </div>
 <?php } else { ?>
-    <div class="card">
+    <div class="card bg-light">
         <div class="card-heading">
             <h3 class="card-title"><?php echo sprintf(__('Google search for %s'), $this->escape(Pi::config('sitename'))); ?></h3>
         </div>

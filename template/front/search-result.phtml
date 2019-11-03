@@ -9,7 +9,7 @@ $this->headMeta('noindex', 'robots');
 
     <?php include $this->template('./search-form.phtml'); ?>
 
-    <div class="card">
+    <div class="card bg-light">
         <div class="card-body">
             <?php if (0 < $total) {
                 echo sprintf(__('On all modules we found about <strong>%d</strong> result on search of <strong>%s</strong>'), $total, $this->escape($query));
@@ -78,7 +78,7 @@ $this->headMeta('noindex', 'robots');
                     <?php if ($total > Pi::config('leading_limit', 'search')) { ?>
                         <div class="search-all-result clearfix col-lg-12 col-md-12 col-12 text-right">
                             <a href="<?php echo $modules[$name]['url']; ?>">
-                                <span class="label label-success"><?php echo __('All result &raquo;'); ?></span>
+                                <span class="badge badge-success"><?php echo __('All result &raquo;'); ?></span>
                             </a>
                         </div>
                     <?php } ?>
