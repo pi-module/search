@@ -11,7 +11,7 @@ return [
     'meta'     => [
         'title'       => _a('Search'),
         'description' => _a('Search service applications.'),
-        'version'     => '1.3.0',
+        'version'     => '1.4.0',
         'license'     => 'New BSD',
         'icon'        => 'fa-search',
     ],

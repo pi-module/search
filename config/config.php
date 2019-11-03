@@ -107,7 +107,9 @@ $config = [
 
         'search_field' => [
             'title'       => _t('Field to search'),
-            'description' => _t('If set field name here, system just search on that fields on your modules but if your set field not exist on module fields search on all module fields, separated by ",".'),
+            'description' => _t(
+                'If set field name here, system just search on that fields on your modules but if your set field not exist on module fields search on all module fields, separated by ",".'
+            ),
             'category'    => 'modules',
         ],
 

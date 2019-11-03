@@ -25,8 +25,9 @@ return [
                         ],
                     ],
                 ],
-                'value' => 'ajax',
+                'value' => 'normal',
             ],
+
             'target'             => [
                 'title' => _a('Target'),
                 'edit'  => [
@@ -40,6 +41,7 @@ return [
                 ],
                 'value' => '_self',
             ],
+
             'module'             => [
                 'title'       => _a('Module'),
                 'description' => _a('Module for search'),
@@ -48,6 +50,7 @@ return [
                 ],
                 'value'       => 'all',
             ],
+
             'current-module'     => [
                 'title'       => _a('Search on current module'),
                 'description' => _a('Show or hide option for search on current module'),
@@ -55,6 +58,7 @@ return [
                 'filter'      => 'number_int',
                 'value'       => 0,
             ],
+
             'descriptiontitle'   => [
                 'title'       => _a('Title field description'),
                 'description' => '',
@@ -62,12 +66,14 @@ return [
                 'filter'      => 'string',
                 'value'       => _a('Search'),
             ],
+
             'disable_submit_atn' => [
                 'title'  => _a('Disable Submit button'),
                 'edit'   => 'checkbox',
                 'filter' => 'number_int',
                 'value'  => 0,
             ],
+
             'delay'              => [
                 'title'       => _a('Ajax search delay'),
                 'description' => _a('Set delay by milliseconds'),
@@ -75,6 +81,7 @@ return [
                 'filter'      => 'number_int',
                 'value'       => 1000,
             ],
+
             'block-effect'       => [
                 'title'       => _a('Use block effects'),
                 'description' => _a('Use block effects or set custom effect on theme'),
