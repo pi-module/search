@@ -4,12 +4,10 @@
 
 .search-block .dropdown-menu {
     width: auto;
-    margin: 0;
+    margin: 0 15px;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     border: 0;
-    margin-left: 15px;
-    margin-right: 15px;
     left: 0;
     right: 0;
 }
