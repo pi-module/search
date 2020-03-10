@@ -37,6 +37,9 @@ class Api extends AbstractApi
     {
         $result = [];
 
+        // Check query
+        $query = _strip(htmlspecialchars($query));
+
         // Get config
         $config = Pi::service("registry")->config->read($this->getModule());
 
