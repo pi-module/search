@@ -96,7 +96,7 @@ $config = [
             'title'       => _t('Hot search'),
             'description' => _t('Hot words for global auto-complete, separated by comma `,`.'),
             'edit'        => 'textarea',
-            'value'       => 'pi engine, zend framework, php, search',
+            'value'       => 'pi engine, Laminas framework, php, search',
         ],
 
         'search_in' => [
